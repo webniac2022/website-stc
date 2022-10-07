@@ -8,7 +8,7 @@ const Navbar = () => {
       {tabs.map((t, i) => (
         <motion.div whileHover={{ opacity: 0.7 }} key={t.id}>
           <Link href={t.path} passHref>
-            <a className="text-lg font-bold text-components-400">{t.name}</a>
+            <a className="text-xl font-bold text-components-400">{t.name}</a>
           </Link>
         </motion.div>
       ))}

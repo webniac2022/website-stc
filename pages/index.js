@@ -8,7 +8,7 @@ const data = {
 
 const Homepage = () => {
   return (
-    <div className="w-full flex flex-row border-2 border-white">
+    <div className="w-full flex flex-row overflow-hidden">
       <HeroImage />
     </div>
   );
