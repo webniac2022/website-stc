@@ -10,7 +10,7 @@ const serviciiPreview = [
   {
     title: "Proiectare tehnica de securitate",
     iconSrc:
-      "https://res.cloudinary.com/webniac/image/upload/v1665214630/STC/proiectare_detectie_dzwyf5.svg",
+      "https://res.cloudinary.com/webniac/image/upload/v1665214379/STC/proiectare_securitate_u95zez.svg",
     iconAlt: "Proiectare tehnica de securitate",
   },
   {

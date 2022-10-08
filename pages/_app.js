@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={client}>
       <AppWrapper>
         <Header />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </AppWrapper>
     </ApolloProvider>
   );

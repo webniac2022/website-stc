@@ -4,15 +4,32 @@ import { Link, motion } from "../../lib/external-components";
 const Navbar = () => {
   const { tabs } = useAppContext();
   return (
-    <div className="hidden md:flex flex-row gap-2">
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5, type: "spring", delayChildren: 0.5 },
+      }}
+      className="hidden md:flex flex-row gap-2"
+    >
       {tabs.map((t, i) => (
-        <motion.div whileHover={{ opacity: 0.7 }} key={t.id}>
+        <motion.div
+          whileHover={{
+            opacity: 0.7,
+            scale: 0.95,
+            transition: { type: "spring" },
+            cursor: "pointer",
+          }}
+          key={t.id}
+          className="rounded-lg shadow-sm shadow-gray-400 p-2"
+        >
           <Link href={t.path} passHref>
-            <a className="text-xl font-bold text-components-400">{t.name}</a>
+            <a className="text-lg text-textColors-700">{t.name}</a>
           </Link>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

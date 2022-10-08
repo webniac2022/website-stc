@@ -20,7 +20,7 @@ const HeroImage = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", duration: 1, damping: 10, bounce: 20 }}
-          className="font-bold text-right text-components-900 xs:text-4xl sm:text-6xl lg:text-8xl"
+          className="font-bold text-right text-textColors-700 xs:text-4xl sm:text-6xl lg:text-8xl"
         >
           Securitatea ta conteaza!
         </motion.h1>
@@ -34,7 +34,7 @@ const HeroImage = () => {
             damping: 10,
             bounce: 20,
           }}
-          className="w-[120px] h-[35px] bg-components-600 rounded-lg text-white text-sm shadow-md shadow-black"
+          className="w-[120px] h-[35px] bg-components-800 rounded-lg text-white text-sm shadow-sm shadow-slate-400"
         >
           Solicita oferta
         </motion.button>

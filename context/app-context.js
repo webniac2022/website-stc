@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 export const AppWrapper = ({ children }) => {
   const [tabs, setTabs] = useState([
-    { name: "Acasa", path: "", id: "acasa" },
+    { name: "Acasa", path: "/", id: "acasa" },
     { name: "Despre", path: "despre", id: "despre" },
     { name: "Servicii", path: "servicii", id: "servicii" },
     { name: "Contact", path: "contact", id: "contact" },

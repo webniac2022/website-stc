@@ -1,4 +1,7 @@
+import CameraAnimation from "../components/camera-animation/camera-animation";
+import CineSuntem from "../components/cine-suntem/cine-suntem";
 import DespreServiciiPreview from "../components/despre-servicii-preview/despre";
+import HeaderSection from "../components/header-section/header-section";
 import HeroImage from "../components/hero-image/hero-image";
 
 const data = {
@@ -9,9 +12,14 @@ const data = {
 
 const Homepage = () => {
   return (
-    <div className="w-full flex flex-col gap-2">
+    <div className="w-full flex flex-col gap-5">
       <HeroImage />
       <DespreServiciiPreview />
+      <CameraAnimation />
+      <HeaderSection title="Cine suntem?" />
+      <CineSuntem />
+      <HeaderSection title="Cum va putem ajuta?" />
+      <HeaderSection title="De ce sa ne alegeti?" />
     </div>
   );
 };
