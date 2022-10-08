@@ -34,7 +34,7 @@ const HeroImage = () => {
             damping: 10,
             bounce: 20,
           }}
-          className="w-[120px] h-[35px] bg-components-600 rounded-lg text-white text-sm"
+          className="w-[120px] h-[35px] bg-components-600 rounded-lg text-white text-sm shadow-md shadow-black"
         >
           Solicita oferta
         </motion.button>

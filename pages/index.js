@@ -1,3 +1,4 @@
+import DespreServiciiPreview from "../components/despre-servicii-preview/despre";
 import HeroImage from "../components/hero-image/hero-image";
 
 const data = {
@@ -8,8 +9,9 @@ const data = {
 
 const Homepage = () => {
   return (
-    <div className="w-full flex flex-row overflow-hidden">
+    <div className="w-full flex flex-col gap-2">
       <HeroImage />
+      <DespreServiciiPreview />
     </div>
   );
 };
