@@ -49,19 +49,13 @@ const variants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
 const CineSuntem = () => {
   return (
-    <div className="w-full p-2 flex flex-row justify-center">
-      <motion.div className="w-[80%] grid grid-cols-3">
-        {data.map((d, i) => (
-          <motion.div
-            variants={variants}
-            whileHover={{
-              cursor: "pointer",
-              scale: 0.95,
-              transition: { type: "spring" },
-            }}
-            className="col-span-1"
-            key={i}
-          >
+    <div className="w-full p-2 flex flex-col gap-5">
+      {data.map((d, i) => (
+        <div
+          key={i}
+          className="grid grid-cols-6 gap-2 rounded-lg shadow-sm shadow-slate-600 p-2"
+        >
+          <div className="col-span-1 flex flex-row justify-center items-center">
             <Image
               src={d.iconSrc}
               alt={d.content}
@@ -69,9 +63,12 @@ const CineSuntem = () => {
               height={78}
               style={{ width: "100%", height: "auto" }}
             />
-          </motion.div>
-        ))}
-      </motion.div>
+          </div>
+          <div className="col-span-5 flex flex-row items-center justify-start">
+            <p className="xs:text-sm sm:text-2xl">{d.content}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
