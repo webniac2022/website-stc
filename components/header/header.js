@@ -1,6 +1,6 @@
 import { Image } from "../../lib/external-components";
 import Navbar from "../navbar/navbar";
-import Sidedrawer from "../sidedrawer/sidedrawer";
+import SidedrawerTrigger from "../sidedrawer/trigger";
 
 const Header = () => {
   return (
@@ -15,14 +15,14 @@ const Header = () => {
           />
         </div>
         <div className="flex flex-row justify-center items-center">
-          <h2 className="text-sm sm:text-lg font-bold text-gray-700 text-center">
+          <h2 className="xs:text-sm sm:text-xl font-bold text-textColors-800 text-center">
             STC WORLD SYSTEMS
           </h2>
         </div>
       </div>
       <div className="col-span-4 sm:col-span-5 flex flex-row items-center justify-end pr-5">
         <Navbar />
-        <Sidedrawer />
+        <SidedrawerTrigger />
       </div>
     </div>
   );

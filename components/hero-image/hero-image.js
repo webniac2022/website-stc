@@ -1,4 +1,4 @@
-import { Image, motion } from "../../lib/external-components";
+import { Image, motion, Link } from "../../lib/external-components";
 
 const HeroImage = () => {
   return (
@@ -24,20 +24,22 @@ const HeroImage = () => {
         >
           Securitatea ta conteaza!
         </motion.h1>
-        <motion.button
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          whileHover={{ scale: 0.95 }}
-          transition={{
-            type: "spring",
-            duration: 1,
-            damping: 10,
-            bounce: 20,
-          }}
-          className="w-[120px] h-[35px] bg-components-800 rounded-lg text-white text-sm shadow-sm shadow-slate-400"
-        >
-          Solicita oferta
-        </motion.button>
+        <Link passHref href="/contact">
+          <motion.button
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 0.95 }}
+            transition={{
+              type: "spring",
+              duration: 1,
+              damping: 10,
+              bounce: 20,
+            }}
+            className="w-[120px] h-[35px] bg-components-800 rounded-lg text-white text-sm shadow-sm shadow-slate-400"
+          >
+            Solicita oferta
+          </motion.button>
+        </Link>
       </motion.div>
     </>
   );

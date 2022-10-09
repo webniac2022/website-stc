@@ -15,17 +15,18 @@ const Navbar = () => {
     >
       {tabs.map((t, i) => (
         <motion.div
+          key={t.id}
           whileHover={{
             opacity: 0.7,
             scale: 0.95,
             transition: { type: "spring" },
             cursor: "pointer",
           }}
-          key={t.id}
-          className="rounded-lg shadow-sm shadow-gray-400 p-2"
         >
           <Link href={t.path} passHref>
-            <a className="text-lg text-textColors-700">{t.name}</a>
+            <motion.a className="rounded-lg shadow-sm shadow-gray-400 p-2 text-lg text-textColors-700">
+              {t.name}
+            </motion.a>
           </Link>
         </motion.div>
       ))}

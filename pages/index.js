@@ -1,5 +1,7 @@
 import CameraAnimation from "../components/camera-animation/camera-animation";
 import CineSuntem from "../components/cine-suntem/cine-suntem";
+import ContactForm from "../components/contact-form/contact-form";
+import Ajutor from "../components/cum-va-putem-ajuta/ajutor";
 import DespreServiciiPreview from "../components/despre-servicii-preview/despre";
 import HeaderSection from "../components/header-section/header-section";
 import HeroImage from "../components/hero-image/hero-image";
@@ -19,7 +21,12 @@ const Homepage = () => {
       <HeaderSection title="Cine suntem?" />
       <CineSuntem />
       <HeaderSection title="Cum va putem ajuta?" />
+      <Ajutor />
       <HeaderSection title="De ce sa ne alegeti?" />
+      <HeaderSection title="Pareri" />
+      <HeaderSection title="Recente" />
+      <HeaderSection title="Contact" />
+      <ContactForm />
     </div>
   );
 };
