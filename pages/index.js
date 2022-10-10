@@ -7,6 +7,7 @@ import DespreServiciiPreview from "../components/despre-servicii-preview/despre"
 import HeaderSection from "../components/header-section/header-section";
 import HeroImage from "../components/hero-image/hero-image";
 import Pareri from "../components/pareri/pareri";
+import Recente from "../components/recente/recente";
 
 const data = {
   logoSrc:
@@ -29,6 +30,7 @@ const Homepage = () => {
       <HeaderSection title="Pareri" />
       <Pareri />
       <HeaderSection title="Recente" />
+      <Recente />
       <HeaderSection title="Contact" />
       <ContactForm />
     </div>
