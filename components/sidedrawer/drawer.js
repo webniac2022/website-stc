@@ -30,11 +30,11 @@ const Drawer = () => {
           />
         </div>
         <div>
-          <ul className="flex flex-col items-center justify-center mt-[15vh] gap-5">
+          <ul className="flex flex-col items-center justify-center mt-[10vh] gap-5">
             {tabs.map((t, i) => (
               <li key={t.id} onClick={toggleSideDrawer}>
                 <Link href={t.path} passHref>
-                  <a className="text-lg font-bold text-textColors-900">
+                  <a className="text-lg font-bold text-textColors-900 hover:opacity-[0.8]">
                     {t.name}
                   </a>
                 </Link>

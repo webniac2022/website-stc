@@ -1,7 +1,16 @@
-import { useState } from "react";
-import { Image } from "../../lib/external-components";
+import { useEffect } from "react";
+import {
+  Image,
+  useEmblaCarousel,
+  Autoplay,
+  useRouter,
+  Link,
+} from "../../lib/external-components";
+import { AiFillEye } from "react-icons/ai";
+
 const data = [
   {
+    id: "prima",
     title: "Sistem supraveghere video",
     description:
       "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
@@ -10,54 +19,55 @@ const data = [
       "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/12c2afcb-d429-4ac8-ad04-3fc92ad7e16a_atnnng.jpg",
     ],
   },
+  {
+    id: "second",
+    title: "Sistem supraveghere video",
+    description:
+      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
+    images: [
+      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/e0f0cf66-e520-4adf-94f7-62eb619a76eb_xpcgqt.jpg",
+      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/ad5d0b7d-0e35-4f46-9503-e5accfc990e2_cwtaqn.jpg",
+      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
+    ],
+  },
 ];
 
 const Recente = () => {
-  const [currentIndex, setCurrentIndex] = useState({
-    elementIndex: 0,
-    imgIndex: 0,
-  });
+  const router = useRouter();
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, dragFree: true },
+    [Autoplay()]
+  );
+
+  useEffect(() => {
+    if (emblaApi) {
+      //
+    }
+  }, []);
 
   return (
-    <div className="w-full p-2">
-      <div className="flex flex-col gap-2 p-2 shadow-sm shadow-black rounded-lg">
-        <div className="grid grid-cols-6 gap-2">
-          <div className="col-span-3">
+    <div ref={emblaRef} className="overflow-x-hidden">
+      <div className="flex flex-row gap-6 hover:cursor-grab">
+        {data.map((d, i) => (
+          <div className="flex-[0_0_80%]" key={i}>
+            {/* <div className="absolute"> */}
+            <Link href={`/recente`} passHref>
+              <AiFillEye className="absolute w-[30px] h-[30px] fill-components-800 hover:cursor-pointer" />
+            </Link>
+            {/* </div> */}
             <Image
-              src={
-                data[currentIndex.elementIndex].images[currentIndex.imgIndex]
-              }
-              alt={data[currentIndex.elementIndex].title}
+              src={d.images[0]}
+              alt={d.title}
               width={1920}
               height={1080}
-              style={{ width: "100%", height: "auto", borderRadius: "5px" }}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "10px",
+              }}
             />
           </div>
-          <div className="col-span-3 flex flex-wrap">
-            <div className="grid grid-cols-3 gap-2">
-              {data[currentIndex.elementIndex].images.map((d, i) => (
-                <div key={i} className="col-span-1">
-                  <Image
-                    src={d}
-                    alt="image preview"
-                    width={1920}
-                    height={1080}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      borderRadius: "5px",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div>
-          <p className="text-black text-sm">
-            {data[currentIndex.elementIndex].description}
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -22,8 +22,7 @@ const data = [
   },
   {
     name: "Lori B.",
-    content:
-      "Super colaborarea! Recomand! Promptitudine, seriozitate si profesionalism!",
+    content: "Super colaborarea! Recomand! Promptitudine si seriozitate!",
     avatar:
       "https://res.cloudinary.com/webniac/image/upload/v1665339350/STC/pexels-andrea-piacquadio-837358_e6qdby.jpg",
   },
