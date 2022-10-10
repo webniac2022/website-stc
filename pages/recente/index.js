@@ -55,6 +55,11 @@ const Recente = ({}) => {
 
   return (
     <div className="flex flex-col gap-2">
+      <div>
+        <h2 className="p-2 xs:text-5xl sm:text-8xl font-bold mt-10 mb-10 text-textColors-600">
+          Lucrari recente
+        </h2>
+      </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-3 gap-2 p-2">
         {myData.map((d, i) => (
           <div

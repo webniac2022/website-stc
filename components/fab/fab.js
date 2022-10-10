@@ -1,5 +1,5 @@
 import { IoMdArrowDropup } from "react-icons/io";
-import { useRouter, motion, useScroll } from "../../lib/external-components";
+import { motion, useScroll } from "../../lib/external-components";
 import { useAppContext } from "../../context/app-context";
 import { useEffect } from "react";
 
@@ -15,12 +15,11 @@ const Fab = ({ children }) => {
     });
   }, []);
 
-  const router = useRouter();
   return (
     <>
       {children}
       <motion.div
-        onClick={() => router.push("/")}
+        onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
         className={`${
           !showFab
             ? "hidden"
