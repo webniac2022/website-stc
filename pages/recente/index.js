@@ -1,5 +1,5 @@
-import { Image } from "../../lib/external-components";
-import { useState, useEffect } from "react";
+import { Image, motion } from "../../lib/external-components";
+import { useState } from "react";
 const data = [
   {
     currentImgIndex: 0,
@@ -34,7 +34,6 @@ const data = [
       "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/e0f0cf66-e520-4adf-94f7-62eb619a76eb_xpcgqt.jpg",
       "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/ad5d0b7d-0e35-4f46-9503-e5accfc990e2_cwtaqn.jpg",
       "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
     ],
   },
 ];
@@ -49,12 +48,11 @@ const Recente = ({}) => {
     setMyData(modifiedArr);
   };
 
-  useEffect(() => {
-    console.log(myData);
-  }, [myData]);
-
   return (
-    <div className="flex flex-col gap-2">
+    <div
+      transition={{ duration: 0.5 }}
+      className="flex flex-col gap-2 overflow-x-hidden"
+    >
       <div>
         <h2 className="p-2 xs:text-5xl sm:text-8xl font-bold mt-10 mb-10 text-textColors-600">
           Lucrari recente
@@ -62,7 +60,17 @@ const Recente = ({}) => {
       </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-3 gap-2 p-2">
         {myData.map((d, i) => (
-          <div
+          <motion.div
+            initial={{ scale: 0.8 }}
+            whileInView={{
+              scale: 1,
+              transition: {
+                duration: 0.5,
+                type: "spring",
+                damping: 10,
+                bounce: 10,
+              },
+            }}
             key={i}
             className="col-span-1 p-2 rounded-lg bg-black flex flex-col gap-2"
           >
@@ -97,7 +105,7 @@ const Recente = ({}) => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

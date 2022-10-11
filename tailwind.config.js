@@ -41,6 +41,7 @@ module.exports = {
         firstGradient: "linear-gradient(to right, #bdc3c7, #2c3e50)",
         secondGradient: "linear-gradient(to right, #304352, #d7d2cc)",
         thirdGradient: "linear-gradient(to right, #232526, #414345)",
+        fourthGradient: "linear-gradient(to right, #00f260, #0575e6)",
       },
     },
   },

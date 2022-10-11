@@ -3,12 +3,13 @@ import {
   Image,
   motion,
   useScroll,
+  useRouter,
   useParallax,
 } from "../../lib/external-components";
 
 const data = {
   documentatii: {
-    title: "Intocmire documentatii",
+    title: "Documentatii",
     iconSrc:
       "https://res.cloudinary.com/webniac/image/upload/v1665333607/STC/Asset_3_xy5zfi.svg",
     servicii: [
@@ -18,7 +19,7 @@ const data = {
     ],
   },
   instalare: {
-    title: "Instalare sisteme",
+    title: "Instalari",
     iconSrc:
       "https://res.cloudinary.com/webniac/image/upload/v1665333607/STC/Asset_1_flxvks.svg",
     servicii: [
@@ -30,7 +31,7 @@ const data = {
     ],
   },
   mentenanta: {
-    title: "Servicii de mentenanta",
+    title: "Mentenanta",
     iconSrc:
       "https://res.cloudinary.com/webniac/image/upload/v1665333607/STC/Asset_2_uvhgbp.svg",
     servicii: [
@@ -43,6 +44,7 @@ const data = {
 };
 
 const Ajutor = () => {
+  const router = useRouter();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y1 = useParallax(scrollYProgress, 20);
@@ -52,20 +54,27 @@ const Ajutor = () => {
       className="w-full p-2 flex flex-row gap-2 items-center justify-center"
     >
       {Object.keys(data).map((d, i) => (
-        <motion.div
-          whileHover={{ cursor: "pointer", scale: 0.95 }}
-          transition={{ type: "spring" }}
-          key={i}
-          style={{ y: y1 }}
-        >
-          <Image
-            src={data[d].iconSrc}
-            alt={data[d].title}
-            width={72}
-            height={78}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </motion.div>
+        <div key={i} className="flex flex-col gap-6">
+          <div className="flex flex-row items-center justify-center">
+            <h4 className="text-textColors-600 font-bold xs:text-sm sm:text-2xl">
+              {data[d].title}
+            </h4>
+          </div>
+          <motion.div
+            whileHover={{ cursor: "pointer", scale: 0.95 }}
+            transition={{ type: "spring" }}
+            style={{ y: y1 }}
+            onClick={() => router.push("/servicii")}
+          >
+            <Image
+              src={data[d].iconSrc}
+              alt={data[d].title}
+              width={72}
+              height={78}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </motion.div>
+        </div>
       ))}
     </div>
   );

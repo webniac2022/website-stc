@@ -6,17 +6,28 @@ import Header from "../components/header/header";
 import ModalDrawer from "../components/modal-drawer/modal-drawer";
 import Drawer from "../components/sidedrawer/drawer";
 import Fab from "../components/fab/fab";
+import PageTransition from "../components/page-transition/page-transition";
+import Footer from "../components/footer/footer";
+import { CookieWrapper } from "../context/cookie-context";
+import Layout from "../components/layout/layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <AppWrapper>
-        <Fab>
-          <Header />
-          <Component {...pageProps} />
-          <ModalDrawer component={<Drawer />} />
-        </Fab>
-      </AppWrapper>
+      <CookieWrapper>
+        <AppWrapper>
+          <Fab>
+            <Header />
+            <PageTransition>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </PageTransition>
+            <Footer />
+            <ModalDrawer component={<Drawer />} />
+          </Fab>
+        </AppWrapper>
+      </CookieWrapper>
     </ApolloProvider>
   );
 }

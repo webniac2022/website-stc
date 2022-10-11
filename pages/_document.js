@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="ro">
       <Head>
-        {/* <Script
+        <Script
           strategy="afterInteractive"
           id="tag_manager"
           dangerouslySetInnerHTML={{
@@ -21,7 +21,7 @@ export default function Document() {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_TAG_MANAGER}')`,
           }}
-        ></Script> */}
+        ></Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -6,7 +6,6 @@ const ContactForm = () => {
   const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
   return (
     <div className="w-full mb-5 flex flex-col gap-16 items-center">
-      {/* form */}
       {state.succeeded ? (
         <motion.div
           initial={{ opacity: 0, x: -50 }}

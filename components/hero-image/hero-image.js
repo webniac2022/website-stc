@@ -12,7 +12,6 @@ const HeroImage = () => {
           style={{ width: "100%", height: "auto", opacity: 0.8 }}
           quality={95}
           priority
-          // sizes=""
         />
       </div>
       <motion.div className="absolute right-0 p-3 w-[70%] overflow-x-hidden flex flex-col gap-2 items-end">

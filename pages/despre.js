@@ -1,3 +1,5 @@
+import { motion } from ".././lib/external-components";
+
 const data = {
   title: "Despre noi",
   paragraphs: [
@@ -22,51 +24,104 @@ const data = {
 
 const DesprePage = () => {
   return (
-    <div className="w-full flex flex-col gap-2">
-      <div>
+    <div className="w-full flex flex-col gap-2 overflow-x-hidden">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 10,
+          bounce: 20,
+        }}
+      >
         <h2 className="p-2 xs:text-5xl sm:text-8xl font-bold mt-10 mb-10 text-textColors-600">
           {data.title}
         </h2>
-      </div>
-      <div className="flex flex-col gap-2">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 10,
+          bounce: 20,
+        }}
+        className="flex flex-col gap-2"
+      >
         {data.paragraphs.map((d, i) => (
           <div key={i}>
             <p className="text-textColors-600 p-2">{d}</p>
           </div>
         ))}
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 10,
+          bounce: 20,
+        }}
+      >
         <h3 className="mt-10 mb-10 p-2 xs:text-4xl sm:text-7xl font-bold text-textColors-600">
           Certificari
         </h3>
-      </div>
+      </motion.div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4 p-2">
         {data.certificari.map((d, i) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              damping: 10,
+              bounce: 20,
+            }}
             key={i}
             className="col-span-1 rounded-lg shadow-sm shadow-black flex flex-row justify-center items-center p-2"
           >
             <h5 className="text-center font-bold xs:text-sm sm:text-xl text-textColors-700">
               {d}
             </h5>
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: 10,
+          bounce: 20,
+        }}
+      >
         <h3 className="mt-10 mb-10 p-2 xs:text-4xl sm:text-7xl font-bold text-textColors-600">
           Autorizatii
         </h3>
-      </div>
+      </motion.div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4 p-2">
         {data.autorizatii.map((d, i) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              damping: 10,
+              bounce: 20,
+            }}
             key={i}
             className="col-span-1 rounded-lg shadow-sm shadow-black flex flex-row justify-center items-center p-2"
           >
             <h5 className="text-center font-bold xs:text-sm sm:text-xl text-textColors-700">
               {d}
             </h5>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

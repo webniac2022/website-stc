@@ -1,10 +1,4 @@
-import {
-  useParallax,
-  useScroll,
-  motion,
-  Image,
-} from "../../lib/external-components";
-import { useRef } from "react";
+import { motion, Image } from "../../lib/external-components";
 
 const data = [
   {
@@ -45,13 +39,19 @@ const data = [
   },
 ];
 
-const variants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
-
 const CineSuntem = () => {
   return (
     <div className="w-full p-2 flex flex-col gap-5">
       {data.map((d, i) => (
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            damping: 10,
+            bounce: 20,
+          }}
           key={i}
           className="grid grid-cols-6 gap-2 rounded-lg shadow-sm shadow-slate-600 p-2"
         >
@@ -67,7 +67,7 @@ const CineSuntem = () => {
           <div className="col-span-5 flex flex-row items-center justify-start">
             <p className="xs:text-sm sm:text-2xl">{d.content}</p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

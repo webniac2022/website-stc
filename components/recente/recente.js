@@ -1,9 +1,7 @@
-import { useEffect } from "react";
 import {
   Image,
   useEmblaCarousel,
   Autoplay,
-  useRouter,
   Link,
 } from "../../lib/external-components";
 import { AiFillEye } from "react-icons/ai";
@@ -33,28 +31,20 @@ const data = [
 ];
 
 const Recente = () => {
-  const router = useRouter();
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, dragFree: true },
-    [Autoplay()]
-  );
-
-  useEffect(() => {
-    if (emblaApi) {
-      //
-    }
-  }, []);
+  const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
+    Autoplay(),
+  ]);
 
   return (
     <div ref={emblaRef} className="overflow-x-hidden">
       <div className="flex flex-row gap-6 hover:cursor-grab">
         {data.map((d, i) => (
           <div className="flex-[0_0_80%]" key={i}>
-            {/* <div className="absolute"> */}
             <Link href={`/recente`} passHref>
-              <AiFillEye className="absolute w-[30px] h-[30px] fill-components-800 hover:cursor-pointer" />
+              <a>
+                <AiFillEye className="absolute w-[30px] h-[30px] fill-components-800 hover:cursor-pointer" />
+              </a>
             </Link>
-            {/* </div> */}
             <Image
               src={d.images[0]}
               alt={d.title}
