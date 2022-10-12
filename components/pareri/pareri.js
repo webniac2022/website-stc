@@ -7,6 +7,10 @@ import {
 import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import {
+  clearTheArrayOfTypename,
+  compareFunction,
+} from "../../lib/helper-functions";
 const data = [
   {
     name: "Iulian M.",
@@ -51,9 +55,18 @@ const variants = {
 
 const swipeConfidenceThreshold = 10000;
 
-const Pareri = () => {
+const Pareri = ({ data }) => {
+  const d = clearTheArrayOfTypename(data);
+  const dd = d.map((el) => ({
+    name: data[el].name,
+    index: data[el].index,
+    avatar: data[el].avatar.sourceUrl,
+    iconAlt: data[el].avatar.altText,
+    content: data[el].content,
+  }));
+  dd.sort(compareFunction);
   const [[page, direction], setPage] = useState([0, 0]);
-  const imageIndex = wrap(0, data.length, page);
+  const imageIndex = wrap(0, dd.length, page);
 
   const paginate = (newDirection) => {
     setPage([page + newDirection, newDirection]);
@@ -101,7 +114,7 @@ const Pareri = () => {
                 <div className="xs:w-[70%] sm:w-[80%] bg-thirdGradient hover:cursor-grab shadow-sm shadow-components-800 rounded-lg p-2 flex flex-col items-center justify-center gap-4">
                   <div className="w-[30%]">
                     <Image
-                      src={data[imageIndex].avatar}
+                      src={dd[imageIndex].avatar}
                       alt="photo testimonial"
                       width={1920}
                       height={1080}
@@ -110,7 +123,7 @@ const Pareri = () => {
                   </div>
                   <div className="">
                     <p className="text-sm text-white">
-                      {data[imageIndex].content}
+                      {dd[imageIndex].content}
                     </p>
                   </div>
                   <div className="flex flex-row gap-1">
@@ -121,9 +134,7 @@ const Pareri = () => {
                     <AiFillStar className="fill-yellow-400 w-[20px] h-[20px]" />
                   </div>
                   <div className="">
-                    <p className="text-lg text-white">
-                      {data[imageIndex].name}
-                    </p>
+                    <p className="text-lg text-white">{dd[imageIndex].name}</p>
                   </div>
                 </div>
               </div>

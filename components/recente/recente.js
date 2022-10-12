@@ -5,6 +5,10 @@ import {
   Link,
 } from "../../lib/external-components";
 import { AiFillEye } from "react-icons/ai";
+import {
+  clearTheArrayOfTypename,
+  compareFunction,
+} from "../../lib/helper-functions";
 
 const data = [
   {
@@ -30,7 +34,19 @@ const data = [
   },
 ];
 
-const Recente = () => {
+const Recente = ({ data }) => {
+  const d = clearTheArrayOfTypename(data);
+  // console.log(data);
+  const dd = d.map((el) => ({
+    id: data[el].id,
+    title: data[el].title,
+    images: clearTheArrayOfTypename(data[el].images).map((elem) => ({
+      imgSrc: data[el][elem].sourceUrl,
+      altText: data[el][elem].altText,
+    })),
+    description: data[el].description,
+  }));
+  console.log(dd);
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
     Autoplay(),
   ]);
@@ -38,7 +54,7 @@ const Recente = () => {
   return (
     <div ref={emblaRef} className="overflow-x-hidden">
       <div className="flex flex-row gap-6 hover:cursor-grab">
-        {data.map((d, i) => (
+        {dd.map((d, i) => (
           <div className="flex-[0_0_80%]" key={i}>
             <Link href={`/recente`} passHref>
               <a>
