@@ -38,13 +38,118 @@ const Homepage = ({
 export const getStaticProps = async () => {
   const homepageQuery = gql`
     query Homepage {
-      posts {
+      allHomepage {
         nodes {
           homepage {
-            serviciiPreview {
+            ajutor {
               item {
+                index
+                title
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy {
+                index
+                title
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy2 {
                 title
                 index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            cineSuntem {
+              item {
+                content
+                index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy {
+                index
+                content
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy2 {
+                content
+                index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy3 {
+                content
+                index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy4 {
+                content
+                index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy5 {
+                content
+                index
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            pareri {
+              item {
+                name
+                index
+                content
+                avatar {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy {
+                name
+                index
+                content
+                avatar {
+                  altText
+                  sourceUrl
+                }
+              }
+              itemCopy2 {
+                name
+                index
+                content
+                avatar {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            serviciiPreview {
+              item {
+                index
+                title
                 iconSrc {
                   altText
                   sourceUrl
@@ -67,8 +172,8 @@ export const getStaticProps = async () => {
                 }
               }
               itemCopy3 {
-                title
                 index
+                title
                 iconSrc {
                   altText
                   sourceUrl
@@ -123,146 +228,43 @@ export const getStaticProps = async () => {
                 }
               }
             }
-            cineSuntem {
-              item {
-                content
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy {
-                content
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy2 {
-                content
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy3 {
-                content
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy4 {
-                content
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy5 {
-                content
-                index
-                iconsrc {
+          }
+        }
+      }
+      allLucrari {
+        nodes {
+          lucrari {
+            item {
+              currentimgindex
+              description
+              id
+              title
+              images {
+                img {
                   altText
                   sourceUrl
                 }
               }
             }
-            ajutor {
-              item {
-                index
-                title
-                iconsrc {
+            itemCopy {
+              title
+              images {
+                img {
+                  altText
+                  sourceUrl
+                }
+                imgCopy {
+                  altText
+                  sourceUrl
+                }
+                imgCopy2 {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy {
-                index
-                title
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy2 {
-                title
-                index
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-            }
-            pareri {
-              item {
-                index
-                name
-                content
-                avatar {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy {
-                name
-                index
-                content
-                avatar {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy2 {
-                index
-                name
-                content
-                avatar {
-                  altText
-                  sourceUrl
-                }
-              }
-            }
-            lucrari {
-              item {
-                description
-                id
-                title
-                images {
-                  img {
-                    altText
-                    sourceUrl
-                  }
-                  imgCopy {
-                    altText
-                    sourceUrl
-                  }
-                }
-              }
-              itemCopy {
-                description
-                id
-                title
-                images {
-                  img {
-                    altText
-                    sourceUrl
-                  }
-                  imgCopy {
-                    altText
-                    sourceUrl
-                  }
-                  imgCopy2 {
-                    altText
-                    sourceUrl
-                  }
-                }
-              }
+              currentimgindex
+              description
+              id
             }
           }
         }
@@ -270,8 +272,9 @@ export const getStaticProps = async () => {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
-  const data = homepageResp?.data?.posts?.nodes[0]?.homepage;
-  return { props: { data: data } };
+  const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
+  const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
+  return { props: { data: { ...homepage, lucrari } } };
 };
 
 export default Homepage;

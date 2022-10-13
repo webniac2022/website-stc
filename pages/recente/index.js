@@ -1,45 +1,21 @@
 import { Image, motion } from "../../lib/external-components";
 import { useState } from "react";
-const data = [
-  {
-    currentImgIndex: 0,
-    id: "prima",
-    title: "Sistem supraveghere video",
-    description:
-      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
-    images: [
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/9db057f7-535d-4130-9975-8ceee67c2903_eoeltl.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/12c2afcb-d429-4ac8-ad04-3fc92ad7e16a_atnnng.jpg",
-    ],
-  },
-  {
-    currentImgIndex: 0,
-    id: "second",
-    title: "Sistem supraveghere video",
-    description:
-      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
-    images: [
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/e0f0cf66-e520-4adf-94f7-62eb619a76eb_xpcgqt.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/ad5d0b7d-0e35-4f46-9503-e5accfc990e2_cwtaqn.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
-    ],
-  },
-  {
-    currentImgIndex: 0,
-    id: "third",
-    title: "Sistem supraveghere video",
-    description:
-      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
-    images: [
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/e0f0cf66-e520-4adf-94f7-62eb619a76eb_xpcgqt.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/ad5d0b7d-0e35-4f46-9503-e5accfc990e2_cwtaqn.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
-    ],
-  },
-];
+import client from "../../lib/apollo";
+import { gql } from "@apollo/client";
+import { clearTheArrayOfTypename } from "../../lib/helper-functions";
 
-const Recente = ({}) => {
-  const [myData, setMyData] = useState(data);
+const Recente = ({ data }) => {
+  const d = clearTheArrayOfTypename(data).map((dd) => ({
+    currentImgIndex: !data[dd].currentimgindex && 0,
+    description: data[dd].description,
+    id: data[dd].id,
+    title: data[dd].title,
+    images: clearTheArrayOfTypename(data[dd].images).map((s) => ({
+      imgSrc: data[dd].images[s].sourceUrl,
+      altText: data[dd].images[s].altText,
+    })),
+  }));
+  const [myData, setMyData] = useState(d);
 
   const changePic = (id, picIndex) => {
     const modifiedArr = myData.map((d) =>
@@ -76,8 +52,8 @@ const Recente = ({}) => {
           >
             <div>
               <Image
-                src={d.images[d.currentImgIndex]}
-                alt="photo"
+                src={d.images[d.currentImgIndex].imgSrc}
+                alt={d.images[d.currentImgIndex].altText}
                 width={1920}
                 height={1080}
                 style={{ width: "100%", height: "auto", borderRadius: "10px" }}
@@ -91,8 +67,8 @@ const Recente = ({}) => {
                   onClick={() => changePic(d.id, ii)}
                 >
                   <Image
-                    src={dd}
-                    alt={dd}
+                    src={dd.imgSrc}
+                    alt={dd.altText}
                     width={1920}
                     height={1080}
                     style={{
@@ -113,8 +89,51 @@ const Recente = ({}) => {
 };
 
 export const getStaticProps = async () => {
-  // Get data from cms
-  return { props: { data: [] } };
+  const lucrariQuery = gql`
+    query Lucrari {
+      allLucrari {
+        nodes {
+          lucrari {
+            item {
+              currentimgindex
+              description
+              id
+              title
+              images {
+                img {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+            itemCopy {
+              title
+              images {
+                img {
+                  altText
+                  sourceUrl
+                }
+                imgCopy {
+                  altText
+                  sourceUrl
+                }
+                imgCopy2 {
+                  altText
+                  sourceUrl
+                }
+              }
+              currentimgindex
+              description
+              id
+            }
+          }
+        }
+      }
+    }
+  `;
+  const lucrariResp = await client.query({ query: lucrariQuery });
+  const data = lucrariResp?.data?.allLucrari?.nodes[0]?.lucrari;
+  return { props: { data: data } };
 };
 
 export default Recente;

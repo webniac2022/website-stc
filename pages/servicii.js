@@ -3,11 +3,9 @@ import client from "../lib/apollo";
 import { Image, motion, useRouter } from "../lib/external-components";
 import {
   clearTheArrayOfTypename,
-  compareFunction,
 } from "../lib/helper-functions";
 
 const ServiciiPage = ({ data: { heroImage, title, subtitle, servicii } }) => {
-  console.log(servicii);
   const analizeParagraphs = clearTheArrayOfTypename(
     servicii.documentatii.analize.paragraphs
   ).map((aa) => servicii.documentatii.analize.paragraphs[aa]);
@@ -342,8 +340,8 @@ const ServiciiPage = ({ data: { heroImage, title, subtitle, servicii } }) => {
 
 export const getStaticProps = async () => {
   const serviciiQuery = gql`
-    query ServiciiPage {
-      posts {
+    query Servicii {
+      allServiciiPage {
         nodes {
           servicii {
             serviciiPage {
@@ -359,18 +357,18 @@ export const getStaticProps = async () => {
                     title
                     paragraphs {
                       item
-                      itemCopy9
-                      itemCopy8
-                      itemCopy7
-                      itemCopy6
-                      itemCopy5
-                      itemCopy4
                       itemCopy
                       itemCopy10
                       itemCopy11
                       itemCopy12
                       itemCopy2
                       itemCopy3
+                      itemCopy4
+                      itemCopy5
+                      itemCopy6
+                      itemCopy7
+                      itemCopy8
+                      itemCopy9
                     }
                   }
                   iconsrc {
@@ -557,8 +555,8 @@ export const getStaticProps = async () => {
     }
   `;
   const serviciiResp = await client.query({ query: serviciiQuery });
-  console.log(serviciiResp?.data?.posts?.nodes[0]?.servicii?.serviciiPage);
-  const data = serviciiResp?.data?.posts?.nodes[0]?.servicii?.serviciiPage;
+  const data =
+    serviciiResp?.data?.allServiciiPage?.nodes[0]?.servicii?.serviciiPage;
   return { props: { data: data } };
 };
 

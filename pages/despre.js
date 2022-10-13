@@ -119,8 +119,8 @@ const DesprePage = ({
 
 export const getStaticProps = async () => {
   const despreQuery = gql`
-    query DesprePage {
-      posts {
+    query Despre {
+      allDespre {
         nodes {
           despre {
             desprePage {
@@ -149,7 +149,7 @@ export const getStaticProps = async () => {
     }
   `;
   const despreResp = await client.query({ query: despreQuery });
-  const data = despreResp?.data?.posts?.nodes[0]?.despre?.desprePage;
+  const data = despreResp?.data?.allDespre?.nodes[0]?.despre?.desprePage;
   return { props: { data: data } };
 };
 
