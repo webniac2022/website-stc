@@ -1,9 +1,7 @@
 import { gql } from "@apollo/client";
 import client from "../lib/apollo";
 import { Image, motion, useRouter } from "../lib/external-components";
-import {
-  clearTheArrayOfTypename,
-} from "../lib/helper-functions";
+import { clearTheArrayOfTypename } from "../lib/helper-functions";
 
 const ServiciiPage = ({ data: { heroImage, title, subtitle, servicii } }) => {
   const analizeParagraphs = clearTheArrayOfTypename(

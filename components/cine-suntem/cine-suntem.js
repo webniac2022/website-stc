@@ -31,7 +31,7 @@ const CineSuntem = ({ data }) => {
           <div className="col-span-1 flex flex-row justify-center items-center">
             <Image
               src={d.iconSrc}
-              alt={d.content}
+              alt={d.iconAlt}
               width={72}
               height={78}
               style={{ width: "100%", height: "auto" }}

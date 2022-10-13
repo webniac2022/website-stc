@@ -20,6 +20,7 @@ const Ajutor = ({ data }) => {
     iconAlt: data[el].iconsrc.altText,
   }));
   dd.sort(compareFunction);
+
   const router = useRouter();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
@@ -44,7 +45,7 @@ const Ajutor = ({ data }) => {
           >
             <Image
               src={el.iconSrc}
-              alt={el.altText}
+              alt={el.iconAlt}
               width={72}
               height={78}
               style={{ width: "100%", height: "auto" }}
