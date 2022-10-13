@@ -230,9 +230,9 @@ export const getStaticProps = async () => {
             }
             lucrari {
               item {
-                title
-                id
                 description
+                id
+                title
                 images {
                   img {
                     altText
@@ -242,16 +242,12 @@ export const getStaticProps = async () => {
                     altText
                     sourceUrl
                   }
-                  imgCopy2 {
-                    altText
-                    sourceUrl
-                  }
                 }
               }
               itemCopy {
-                title
-                id
                 description
+                id
+                title
                 images {
                   img {
                     altText

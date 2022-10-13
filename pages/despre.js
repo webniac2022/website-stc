@@ -1,28 +1,17 @@
 import { motion } from ".././lib/external-components";
+import client from "../lib/apollo";
+import { gql } from "@apollo/client";
+import { clearTheArrayOfTypename } from "../lib/helper-functions";
 
-const data = {
-  title: "Despre noi",
-  paragraphs: [
-    "Am pornit la drum in anul 2019, decisi sa oferim clientilor nostri servicii de securitate la standarde cat mai inalte. Valorile dupa care ne ghidam sunt seriozitate, profesionalism si dedicare. Dorim sa gasim solutii acolo unde altii inceteaza sa caute!",
-    "Venim in sprijinul dumneavoastra cu o experienta de peste 10 ani in domeniul securitatii, timp in care am evoluat si am reusit sa ne conturam o viziune clara asupra domeniului si a strategiilor pe care dorim sa le implementam si sa le urmam.",
-  ],
-  certificari: [
-    "Evaluator de risc la securitatea fizica",
-    "Manager de securitate",
-    "Inginer in securitate",
-    "Proiectant de securitate",
-    "Proiectant sisteme de detectie si semnalizare incendiu",
-    "Tehnician sisteme de securitate",
-    "Responsabil cu protectia datelor cu caracter personal",
-  ],
-  autorizatii: [
-    "Detinem licenta IGPR cu nr. 5067/T din 04.07.2019 sa efectuam urmatoarele activitati - proiectare, instalare, modificare si intretinere a componentelor sau sistemelor de alarmare impotriva efractiei;",
-    "Detinem autorizatia Seria A Nr. 9987 din 16.07.2020 pentru efectuarea urmatoarelor activitati - Proiectare a sistemelor si instalatiilor de semnalizare , alarmare si alertare in caz de incendiu;",
-    "Detinem autorizatia Seria A Nr. 9986 din 16.07.2020 pentru efectuarea urmatoarelor activitati - Instalare si intretinere a sistemelor si instalatiilor de semnalizare, alarmare si alertare in caz de incendiu;",
-  ],
-};
+const DesprePage = ({
+  data: { title, autorizatii, certificari, paragraphs },
+}) => {
+  const p = clearTheArrayOfTypename(paragraphs).map((p) => paragraphs[p]);
+  const aut = clearTheArrayOfTypename(autorizatii).map((aa) => autorizatii[aa]);
+  const cert = clearTheArrayOfTypename(certificari).map(
+    (cert) => certificari[cert]
+  );
 
-const DesprePage = () => {
   return (
     <div className="w-full flex flex-col gap-2 overflow-x-hidden">
       <motion.div
@@ -36,7 +25,7 @@ const DesprePage = () => {
         }}
       >
         <h2 className="p-2 xs:text-5xl sm:text-8xl font-bold mt-10 mb-10 text-textColors-600">
-          {data.title}
+          {title}
         </h2>
       </motion.div>
       <motion.div
@@ -50,7 +39,7 @@ const DesprePage = () => {
         }}
         className="flex flex-col gap-2"
       >
-        {data.paragraphs.map((d, i) => (
+        {p.map((d, i) => (
           <div key={i}>
             <p className="text-textColors-600 p-2">{d}</p>
           </div>
@@ -71,7 +60,7 @@ const DesprePage = () => {
         </h3>
       </motion.div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4 p-2">
-        {data.certificari.map((d, i) => (
+        {cert.map((d, i) => (
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -105,7 +94,7 @@ const DesprePage = () => {
         </h3>
       </motion.div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 gap-4 p-2">
-        {data.autorizatii.map((d, i) => (
+        {aut.map((d, i) => (
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,6 +115,42 @@ const DesprePage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const despreQuery = gql`
+    query DesprePage {
+      posts {
+        nodes {
+          despre {
+            desprePage {
+              title
+              autorizatii {
+                item
+                itemCopy
+              }
+              certificari {
+                item
+                itemCopy
+                itemCopy2
+                itemCopy3
+                itemCopy4
+                itemCopy5
+                itemCopy6
+              }
+              paragraphs {
+                item
+                itemCopy
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+  const despreResp = await client.query({ query: despreQuery });
+  const data = despreResp?.data?.posts?.nodes[0]?.despre?.desprePage;
+  return { props: { data: data } };
 };
 
 export default DesprePage;

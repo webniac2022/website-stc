@@ -5,48 +5,19 @@ import {
   Link,
 } from "../../lib/external-components";
 import { AiFillEye } from "react-icons/ai";
-import {
-  clearTheArrayOfTypename,
-  compareFunction,
-} from "../../lib/helper-functions";
-
-const data = [
-  {
-    id: "prima",
-    title: "Sistem supraveghere video",
-    description:
-      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
-    images: [
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/9db057f7-535d-4130-9975-8ceee67c2903_eoeltl.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/12c2afcb-d429-4ac8-ad04-3fc92ad7e16a_atnnng.jpg",
-    ],
-  },
-  {
-    id: "second",
-    title: "Sistem supraveghere video",
-    description:
-      "Sistem de supraveghere video wifi HIKVISION, casa particulara.",
-    images: [
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/e0f0cf66-e520-4adf-94f7-62eb619a76eb_xpcgqt.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/ad5d0b7d-0e35-4f46-9503-e5accfc990e2_cwtaqn.jpg",
-      "https://res.cloudinary.com/webniac/image/upload/v1662042015/STC/7eaad2d4-95b3-4aad-8d0b-f8d34c2d518f_hgmiq8.jpg",
-    ],
-  },
-];
+import { clearTheArrayOfTypename } from "../../lib/helper-functions";
 
 const Recente = ({ data }) => {
   const d = clearTheArrayOfTypename(data);
-  // console.log(data);
   const dd = d.map((el) => ({
     id: data[el].id,
     title: data[el].title,
     images: clearTheArrayOfTypename(data[el].images).map((elem) => ({
-      imgSrc: data[el][elem].sourceUrl,
-      altText: data[el][elem].altText,
+      imageSrc: data[el].images[elem].sourceUrl,
+      altText: data[el].images[elem].altText,
     })),
     description: data[el].description,
   }));
-  console.log(dd);
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
     Autoplay(),
   ]);
@@ -62,8 +33,8 @@ const Recente = ({ data }) => {
               </a>
             </Link>
             <Image
-              src={d.images[0]}
-              alt={d.title}
+              src={d.images[0].imageSrc}
+              alt={d.images[0].altText}
               width={1920}
               height={1080}
               style={{
