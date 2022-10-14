@@ -11,6 +11,7 @@ import Footer from "../components/footer/footer";
 import { CookieWrapper } from "../context/cookie-context";
 import Layout from "../components/layout/layout";
 import Seo from "../components/custom-seo/seo";
+
 function MyApp({ Component, pageProps, canonical }) {
   return (
     <ApolloProvider client={client}>
