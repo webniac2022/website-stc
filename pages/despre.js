@@ -117,7 +117,7 @@ const DesprePage = ({
   );
 };
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const despreQuery = gql`
     query Despre {
       allDespre {
@@ -151,6 +151,6 @@ export const getStaticProps = async () => {
   const despreResp = await client.query({ query: despreQuery });
   const data = despreResp?.data?.allDespre?.nodes[0]?.despre?.desprePage;
   return { props: { data: data } };
-};
+}
 
 export default DesprePage;

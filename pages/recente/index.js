@@ -97,7 +97,7 @@ const Recente = ({ data }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const lucrariQuery = gql`
     query Lucrari {
       allLucrari {
@@ -141,6 +141,6 @@ export const getStaticProps = async () => {
   const lucrariResp = await client.query({ query: lucrariQuery });
   const data = lucrariResp?.data?.allLucrari?.nodes[0]?.lucrari;
   return { props: { data: data } };
-};
+}
 
 export default Recente;

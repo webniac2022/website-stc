@@ -38,7 +38,7 @@ const Homepage = ({
   );
 };
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const homepageQuery = gql`
     query Homepage {
       allHomepage {
@@ -276,6 +276,6 @@ export const getStaticProps = async () => {
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
   const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
   return { props: { data: { homepage, lucrari } } };
-};
+}
 
 export default Homepage;
