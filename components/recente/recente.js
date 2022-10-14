@@ -19,9 +19,10 @@ const Recente = ({ data }) => {
     })),
     description: data[el].description,
   }));
-  const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
-    Autoplay(),
-  ]);
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, dragFree: true, containScroll: "trimSnaps" },
+    [Autoplay()]
+  );
 
   return (
     <div ref={emblaRef} className="overflow-x-hidden">
