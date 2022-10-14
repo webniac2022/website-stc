@@ -272,9 +272,12 @@ export const getStaticProps = async () => {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
+  const error = await homepageResp.errors();
+  console.log(error);
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
   const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
-  return { props: { data: { ...homepage, lucrari } } };
+
+  return { props: { data: { ...homepage, ...lucrari } } };
 };
 
 export default Homepage;
