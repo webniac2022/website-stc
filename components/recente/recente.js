@@ -10,6 +10,7 @@ import { clearTheArrayOfTypename } from "../../lib/helper-functions";
 const Recente = ({ data }) => {
   const d = clearTheArrayOfTypename(data);
   const dd = d.map((el) => ({
+    currentImgIndex: 0,
     id: data[el].id,
     title: data[el].title,
     images: clearTheArrayOfTypename(data[el].images).map((elem) => ({

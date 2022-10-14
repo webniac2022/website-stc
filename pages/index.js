@@ -12,7 +12,10 @@ import { gql } from "@apollo/client";
 import client from "../lib/apollo";
 
 const Homepage = ({
-  data: { serviciiPreview, cineSuntem, ajutor, pareri, lucrari },
+  data: {
+    lucrari,
+    homepage: { serviciiPreview, cineSuntem, ajutor, pareri },
+  },
 }) => {
   return (
     <div className="w-full flex flex-col gap-5">
@@ -235,7 +238,6 @@ export const getStaticProps = async () => {
         nodes {
           lucrari {
             item {
-              currentimgindex
               description
               id
               title
@@ -262,7 +264,6 @@ export const getStaticProps = async () => {
                   sourceUrl
                 }
               }
-              currentimgindex
               description
               id
             }
@@ -272,12 +273,9 @@ export const getStaticProps = async () => {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
-  const error = await homepageResp.errors();
-  console.log(error);
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
   const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
-
-  return { props: { data: { ...homepage, ...lucrari } } };
+  return { props: { data: { homepage, lucrari } } };
 };
 
 export default Homepage;

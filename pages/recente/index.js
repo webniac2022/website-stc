@@ -5,8 +5,9 @@ import { gql } from "@apollo/client";
 import { clearTheArrayOfTypename } from "../../lib/helper-functions";
 
 const Recente = ({ data }) => {
+  console.log(data);
   const d = clearTheArrayOfTypename(data).map((dd) => ({
-    currentImgIndex: !data[dd].currentimgindex && 0,
+    currentImgIndex: 0,
     description: data[dd].description,
     id: data[dd].id,
     title: data[dd].title,
@@ -50,6 +51,14 @@ const Recente = ({ data }) => {
             key={i}
             className="col-span-1 p-2 rounded-lg bg-black flex flex-col gap-2"
           >
+            <div className="flex flex-row justify-center items-center">
+              <h2 className="text-white font-bold text-2xl p-2">{d.title}</h2>
+            </div>
+            <div className="flex flex-row justify-center items-center">
+              <h2 className="text-white font-bold text-sm p-2 text-left">
+                {d.description}
+              </h2>
+            </div>
             <div>
               <Image
                 src={d.images[d.currentImgIndex].imgSrc}
@@ -95,7 +104,6 @@ export const getStaticProps = async () => {
         nodes {
           lucrari {
             item {
-              currentimgindex
               description
               id
               title
@@ -122,7 +130,6 @@ export const getStaticProps = async () => {
                   sourceUrl
                 }
               }
-              currentimgindex
               description
               id
             }
