@@ -26,21 +26,18 @@ const Ajutor = ({ data }) => {
   const { scrollYProgress } = useScroll({ target: ref });
   const y1 = useParallax(scrollYProgress, 20);
   return (
-    <div
-      ref={ref}
-      className="w-full p-2 flex flex-row gap-2 items-center justify-center"
-    >
+    <div ref={ref} className="grid grid-cols-6">
       {dd.map((el, i) => (
-        <div key={i} className="flex flex-col gap-6">
-          <div className="flex flex-row items-center justify-center">
-            <h4 className="text-textColors-600 font-bold xs:text-sm sm:text-2xl">
+        <div className="col-span-2 flex flex-col gap-10 items-center" key={i}>
+          <div>
+            <h5 className="text-textColors-600 font-bold xs:text-lg sm:text-5xl">
               {el.title}
-            </h4>
+            </h5>
           </div>
           <motion.div
-            whileHover={{ cursor: "pointer", scale: 0.95 }}
-            transition={{ type: "spring" }}
             style={{ y: y1 }}
+            whileHover={{ scale: 0.95, cursor: "pointer" }}
+            transition={{ type: "spring" }}
             onClick={() => router.push("/servicii")}
           >
             <Image
