@@ -10,8 +10,8 @@ import PageTransition from "../components/page-transition/page-transition";
 import Footer from "../components/footer/footer";
 import { CookieWrapper } from "../context/cookie-context";
 import Layout from "../components/layout/layout";
-
-function MyApp({ Component, pageProps }) {
+import Seo from "../components/custom-seo/seo";
+function MyApp({ Component, pageProps, canonical }) {
   return (
     <ApolloProvider client={client}>
       <CookieWrapper>
@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
             <Header />
             <PageTransition>
               <Layout>
+                <Seo canonical={canonical} />
                 <Component {...pageProps} />
               </Layout>
             </PageTransition>

@@ -5,7 +5,6 @@ import { gql } from "@apollo/client";
 import { clearTheArrayOfTypename } from "../../lib/helper-functions";
 
 const Recente = ({ data }) => {
-  console.log(data);
   const d = clearTheArrayOfTypename(data).map((dd) => ({
     currentImgIndex: 0,
     description: data[dd].description,
