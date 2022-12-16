@@ -6,15 +6,12 @@ import Why from "../components/de-ce-sa-ne-alegeti/why";
 import DespreServiciiPreview from "../components/despre-servicii-preview/despre";
 import HeaderSection from "../components/header-section/header-section";
 import HeroImage from "../components/hero-image/hero-image";
-import Pareri from "../components/pareri/pareri";
-import Recente from "../components/recente/recente";
 import { gql } from "@apollo/client";
 import client from "../lib/apollo";
 
 const Homepage = ({
   data: {
-    lucrari,
-    homepage: { serviciiPreview, cineSuntem, ajutor, pareri },
+    homepage: { serviciiPreview, cineSuntem, ajutor },
   },
 }) => {
   return (

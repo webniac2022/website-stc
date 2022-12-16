@@ -7,8 +7,8 @@ const Footer = () => {
   const { dispatch } = useCookieContext();
   return (
     <div className="w-full flex-col mt-16 p-2">
-      <div className="grid grid-cols-6">
-        <div className="xs:col-span-3 sm:col-span-2 flex flex-col gap-2">
+      <div className="grid grid-cols-12">
+        <div className="xs:col-span-5 sm:col-span-3 flex flex-col gap-2">
           <div className="flex flex-row justify-center items-center">
             <Image
               src="https://res.cloudinary.com/webniac/image/upload/v1659537920/STC/logo_t8yr6g.svg"
@@ -23,7 +23,7 @@ const Footer = () => {
             </h6>
           </div>
         </div>
-        <div className="xs:col-span-3 sm:col-span-4 flex flex-col gap-2 justify-center items-start">
+        <div className="xs:col-span-7 sm:col-span-9 flex flex-col gap-2 justify-center items-start">
           <div className="flex flex-row justify-start">
             <button
               onClick={() =>
