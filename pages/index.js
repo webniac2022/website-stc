@@ -28,10 +28,6 @@ const Homepage = ({
       <Ajutor data={ajutor} />
       <HeaderSection title="De ce sa ne alegeti?" />
       <Why />
-      <HeaderSection title="Pareri" />
-      <Pareri data={pareri} />
-      <HeaderSection title="Recente" />
-      <Recente data={lucrari} />
       <HeaderSection title="Contact" />
       <ContactForm />
     </div>

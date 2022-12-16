@@ -9,7 +9,6 @@ export const AppWrapper = ({ children }) => {
     { name: "Acasa", path: "/", id: "acasa" },
     { name: "Despre", path: "despre", id: "despre" },
     { name: "Servicii", path: "servicii", id: "servicii" },
-    { name: "Recente", path: "recente", id: "recente" },
     { name: "Contact", path: "contact", id: "contact" },
   ]);
 
