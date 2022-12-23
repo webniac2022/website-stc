@@ -39,22 +39,22 @@ export async function getStaticProps() {
           homepage {
             ajutor {
               item {
-                index
                 title
+                index
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy {
-                index
+              item2 {
                 title
+                index
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy2 {
+              item3 {
                 title
                 index
                 iconsrc {
@@ -72,15 +72,7 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
-              itemCopy {
-                index
-                content
-                iconsrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy2 {
+              item2 {
                 content
                 index
                 iconsrc {
@@ -88,7 +80,7 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
-              itemCopy3 {
+              item3 {
                 content
                 index
                 iconsrc {
@@ -96,7 +88,7 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
-              itemCopy4 {
+              item4 {
                 content
                 index
                 iconsrc {
@@ -104,7 +96,7 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
-              itemCopy5 {
+              item5 {
                 content
                 index
                 iconsrc {
@@ -112,153 +104,99 @@ export async function getStaticProps() {
                   sourceUrl
                 }
               }
-            }
-            pareri {
-              item {
-                name
-                index
+              item6 {
                 content
-                avatar {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy {
-                name
                 index
-                content
-                avatar {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy2 {
-                name
-                index
-                content
-                avatar {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
             }
             serviciiPreview {
+              iconsrc
+              index
+              title
               item {
                 index
                 title
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy {
+              item10 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy2 {
+              item2 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy3 {
-                index
-                title
-                iconSrc {
-                  altText
-                  sourceUrl
-                }
-              }
-              itemCopy4 {
+              item3 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy5 {
+              item4 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy6 {
+              item5 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy7 {
+              item6 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy8 {
+              item7 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-              itemCopy9 {
+              item8 {
+                index
+                title
+                iconsrc {
+                  altText
+                  sourceUrl
+                }
+              }
+              item9 {
                 title
                 index
-                iconSrc {
+                iconsrc {
                   altText
                   sourceUrl
                 }
               }
-            }
-          }
-        }
-      }
-      allLucrari {
-        nodes {
-          lucrari {
-            item {
-              description
-              id
-              title
-              images {
-                img {
-                  altText
-                  sourceUrl
-                }
-              }
-            }
-            itemCopy {
-              title
-              images {
-                img {
-                  altText
-                  sourceUrl
-                }
-                imgCopy {
-                  altText
-                  sourceUrl
-                }
-                imgCopy2 {
-                  altText
-                  sourceUrl
-                }
-              }
-              description
-              id
             }
           }
         }
@@ -267,7 +205,6 @@ export async function getStaticProps() {
   `;
   const homepageResp = await client.query({ query: homepageQuery });
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
-  const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
   return { props: { data: { homepage, lucrari } } };
 }
 

@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import { clearTheArrayOfTypename } from "../lib/helper-functions";
 import Head from "next/head";
 import Seo from "../components/custom-seo/seo";
+
 const DesprePage = ({
   data: { title, autorizatii, certificari, paragraphs },
 }) => {
@@ -129,27 +130,27 @@ const DesprePage = ({
 export async function getStaticProps() {
   const despreQuery = gql`
     query Despre {
-      allDespre {
+      allDesprePage {
         nodes {
           despre {
             desprePage {
               title
               autorizatii {
                 item
-                itemCopy
+                item2
               }
               certificari {
                 item
-                itemCopy
-                itemCopy2
-                itemCopy3
-                itemCopy4
-                itemCopy5
-                itemCopy6
+                item2
+                item3
+                item7
+                item6
+                item5
+                item4
               }
               paragraphs {
                 item
-                itemCopy
+                item2
               }
             }
           }

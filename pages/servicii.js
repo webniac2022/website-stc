@@ -342,208 +342,178 @@ export const getStaticProps = async () => {
       allServiciiPage {
         nodes {
           servicii {
-            serviciiPage {
+            servicii {
               title
               subtitle
-              heroImage {
+              analize {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy10
+                  itemCopy11
+                  itemCopy12
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                  itemCopy5
+                  itemCopy6
+                  itemCopy7
+                  itemCopy8
+                  itemCopy9
+                }
+              }
+              heroimage {
                 altText
                 sourceUrl
               }
-              servicii {
-                documentatii {
-                  analize {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy10
-                      itemCopy11
-                      itemCopy12
-                      itemCopy2
-                      itemCopy3
-                      itemCopy4
-                      itemCopy5
-                      itemCopy6
-                      itemCopy7
-                      itemCopy8
-                      itemCopy9
-                    }
-                  }
-                  iconsrc {
-                    altText
-                    sourceUrl
-                  }
-                  incendiu {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                    }
-                  }
-                  securitate {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy10
-                      itemCopy11
-                      itemCopy12
-                      itemCopy2
-                      itemCopy3
-                      itemCopy4
-                      itemCopy5
-                      itemCopy6
-                      itemCopy7
-                      itemCopy8
-                      itemCopy9
-                    }
-                  }
+              iconsrcdocumentatii {
+                altText
+                sourceUrl
+              }
+              iconsrcinstalari {
+                altText
+                sourceUrl
+              }
+              iconsrcmentenanta {
+                altText
+                sourceUrl
+              }
+              instalareacces {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
                 }
-                instalare {
-                  acces {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy2
-                      itemCopy3
-                      itemCopy4
-                      itemCopy5
-                    }
-                  }
-                  antiefractie {
-                    title
-                    cablate {
-                      title
-                      paragraphs {
-                        copy
-                        copy2
-                        copy3
-                        copy4
-                      }
-                    }
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy2
-                      itemCopy3
-                      itemCopy4
-                    }
-                    smart {
-                      title
-                      paragraphs {
-                        copy
-                        copy2
-                        copy3
-                        copy4
-                        copy5
-                        copy6
-                        copy7
-                        copy8
-                      }
-                    }
-                  }
-                  iconSrc {
-                    altText
-                    sourceUrl
-                  }
-                  incendiu {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy10
-                      itemCopy11
-                      itemCopy12
-                      itemCopy13
-                      itemCopy14
-                      itemCopy15
-                      itemCopy16
-                      itemCopy17
-                      itemCopy18
-                      itemCopy19
-                      itemCopy2
-                      itemCopy20
-                      itemCopy21
-                      itemCopy22
-                      itemCopy23
-                      itemCopy24
-                      itemCopy25
-                      itemCopy26
-                      itemCopy27
-                      itemCopy3
-                      itemCopy4
-                      itemCopy5
-                      itemCopy6
-                      itemCopy7
-                      itemCopy8
-                      itemCopy9
-                    }
-                  }
-                  interfonie {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy2
-                      itemCopy3
-                    }
-                  }
-                  mentenanta {
-                    title
-                    iconSrc {
-                      altText
-                      sourceUrl
-                    }
-                    paragraphs {
-                      item
-                      itemCopy
-                    }
-                  }
-                  retele {
-                    title
-                    paragraphs {
-                      item
-                      itemCopy
-                    }
-                  }
-                  video {
-                    title
-                    analogice {
-                      title
-                      p {
-                        item
-                        itemCopy
-                        itemCopy2
-                        itemCopy3
-                        itemCopy4
-                        itemCopy5
-                        itemCopy6
-                      }
-                    }
-                    ip {
-                      title
-                      p {
-                        item
-                        itemCopy
-                        itemCopy2
-                        itemCopy3
-                        itemCopy4
-                        itemCopy5
-                        itemCopy6
-                        itemCopy7
-                        itemCopy8
-                        itemCopy9
-                      }
-                    }
-                    paragraphs {
-                      item
-                      itemCopy
-                      itemCopy2
-                      itemCopy3
-                      itemCopy4
-                    }
-                  }
+              }
+              instalareantiefractie {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                }
+              }
+              instalareincendiu {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                }
+              }
+              instalareinterfonie {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                }
+              }
+              instalarevideo {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                }
+              }
+              mentenanta {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                }
+              }
+              proiecteincendiu {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                }
+              }
+              proiectesecuritate {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy10
+                  itemCopy11
+                  itemCopy12
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                  itemCopy5
+                  itemCopy6
+                  itemCopy7
+                  itemCopy8
+                  itemCopy9
+                }
+              }
+              retele {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                }
+              }
+              sistemeanalogice {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                  itemCopy5
+                  itemCopy6
+                }
+              }
+              sistemecablate {
+                title
+                paragraph {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                }
+              }
+              sistemeip {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                  itemCopy5
+                  itemCopy6
+                  itemCopy7
+                  itemCopy8
+                  itemCopy9
+                }
+              }
+              sistemesmart {
+                title
+                paragraphs {
+                  item
+                  itemCopy
+                  itemCopy2
+                  itemCopy3
+                  itemCopy4
+                  itemCopy5
+                  itemCopy6
+                  itemCopy7
                 }
               }
             }
