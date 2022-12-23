@@ -3,7 +3,8 @@ import client from "../lib/apollo";
 import { Image, motion, useRouter } from "../lib/external-components";
 import { clearTheArrayOfTypename } from "../lib/helper-functions";
 
-const ServiciiPage = ({ data: { heroImage, title, subtitle, servicii } }) => {
+const ServiciiPage = ({ data }) => {
+  console.log(data);
   const analizeParagraphs = clearTheArrayOfTypename(
     servicii.documentatii.analize.paragraphs
   ).map((aa) => servicii.documentatii.analize.paragraphs[aa]);
@@ -524,7 +525,7 @@ export const getStaticProps = async () => {
   `;
   const serviciiResp = await client.query({ query: serviciiQuery });
   const data =
-    serviciiResp?.data?.allServiciiPage?.nodes[0]?.servicii?.serviciiPage;
+    serviciiResp?.data?.allServiciiPage?.nodes[0]?.servicii?.servicii;
   return { props: { data: data } };
 };
 

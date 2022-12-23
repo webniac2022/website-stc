@@ -135,7 +135,7 @@ export async function getStaticProps() {
           despre {
             desprePage {
               title
-              autorizatii {
+              paragraphs {
                 item
                 item2
               }
@@ -143,12 +143,12 @@ export async function getStaticProps() {
                 item
                 item2
                 item3
-                item7
-                item6
-                item5
                 item4
+                item5
+                item6
+                item7
               }
-              paragraphs {
+              autorizatii {
                 item
                 item2
               }
@@ -159,7 +159,8 @@ export async function getStaticProps() {
     }
   `;
   const despreResp = await client.query({ query: despreQuery });
-  const data = despreResp?.data?.allDespre?.nodes[0]?.despre?.desprePage;
+  console.log("Despre page: despreResp");
+  const data = despreResp?.data?.allDesprePage?.nodes[0]?.despre?.desprePage;
   return { props: { data: data } };
 }
 

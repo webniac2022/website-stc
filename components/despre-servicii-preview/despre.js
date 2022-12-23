@@ -5,12 +5,13 @@ import {
 } from "../../lib/helper-functions";
 
 const DespreServiciiPreview = ({ data }) => {
+  console.log("Data", data);
   const d = clearTheArrayOfTypename(data);
   const dd = d.map((el) => ({
     title: data[el].title,
     index: data[el].index,
-    iconSrc: data[el].iconSrc.sourceUrl,
-    iconAlt: data[el].iconSrc.altText,
+    iconSrc: data[el].iconsrc.sourceUrl,
+    iconAlt: data[el].iconsrc.altText,
   }));
   dd.sort(compareFunction);
 

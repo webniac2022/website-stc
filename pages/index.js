@@ -73,40 +73,40 @@ export async function getStaticProps() {
                 }
               }
               item2 {
-                content
                 index
+                content
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
               item3 {
-                content
                 index
+                content
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
               item4 {
-                content
                 index
+                content
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
               item5 {
-                content
                 index
+                content
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
               item6 {
-                content
                 index
+                content
                 iconsrc {
                   altText
                   sourceUrl
@@ -114,12 +114,9 @@ export async function getStaticProps() {
               }
             }
             serviciiPreview {
-              iconsrc
-              index
-              title
               item {
-                index
                 title
+                index
                 iconsrc {
                   altText
                   sourceUrl
@@ -174,16 +171,16 @@ export async function getStaticProps() {
                 }
               }
               item7 {
-                title
                 index
+                title
                 iconsrc {
                   altText
                   sourceUrl
                 }
               }
               item8 {
-                index
                 title
+                index
                 iconsrc {
                   altText
                   sourceUrl
@@ -204,8 +201,9 @@ export async function getStaticProps() {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
+  console.log("Resp index page: ", homepageResp);
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
-  return { props: { data: { homepage, lucrari } } };
+  return { props: { data: { homepage } } };
 }
 
 export default Homepage;
