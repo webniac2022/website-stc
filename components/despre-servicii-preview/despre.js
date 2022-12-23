@@ -5,7 +5,6 @@ import {
 } from "../../lib/helper-functions";
 
 const DespreServiciiPreview = ({ data }) => {
-  console.log("Data", data);
   const d = clearTheArrayOfTypename(data);
   const dd = d.map((el) => ({
     title: data[el].title,

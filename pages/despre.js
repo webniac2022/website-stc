@@ -159,7 +159,6 @@ export async function getStaticProps() {
     }
   `;
   const despreResp = await client.query({ query: despreQuery });
-  console.log("Despre page: despreResp");
   const data = despreResp?.data?.allDesprePage?.nodes[0]?.despre?.desprePage;
   return { props: { data: data } };
 }

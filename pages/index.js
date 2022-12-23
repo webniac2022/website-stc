@@ -201,7 +201,6 @@ export async function getStaticProps() {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
-  console.log("Resp index page: ", homepageResp);
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
   return { props: { data: { homepage } } };
 }
