@@ -266,7 +266,6 @@ export async function getStaticProps() {
     }
   `;
   const homepageResp = await client.query({ query: homepageQuery });
-
   const homepage = homepageResp?.data?.allHomepage?.nodes[0]?.homepage;
   const lucrari = homepageResp?.data?.allLucrari?.nodes[0]?.lucrari;
   return { props: { data: { homepage, lucrari } } };
