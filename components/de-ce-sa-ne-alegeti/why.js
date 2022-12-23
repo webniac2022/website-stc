@@ -27,64 +27,62 @@ const Why = () => {
         start();
       }}
       ref={ref}
-      className="w-full flex flex-col gap-2 mb-10"
+      className="grid grid-cols-12"
     >
-      <motion.div style={{ y: y1 }} className="flex flex-row justify-start p-2">
-        <div className="w-[50%]">
-          <div className="w-[220px] h-[220px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
-            <h2 className="text-center text-sm font-bold text-white">+</h2>
-            <h2
-              ref={countUpRef}
-              className="text-center text-sm font-bold text-white"
-            ></h2>
-            <h2 className="text-center text-sm font-bold text-white">
-              clienti multumiti
-            </h2>
-          </div>
+      <motion.div
+        style={{ y: y1 }}
+        className="col-span-12 flex flex-row items-center justify-start p-5"
+      >
+        <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
+          <h2 className="text-center text-sm font-bold text-white">+</h2>
+          <h2
+            ref={countUpRef}
+            className="text-center text-sm font-bold text-white"
+          ></h2>
+          <h2 className="text-center text-sm font-bold text-white">
+            clienti multumiti
+          </h2>
         </div>
       </motion.div>
       <motion.div
         style={{ y: y2 }}
-        className="flex flex-row justify-center p-2"
+        className="col-span-12 flex flex-row items-center justify-center p-5"
       >
-        <div className="w-[50%]">
-          <div className="w-[220px] h-[220px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
-            <h2 className="text-sm font-bold text-white text-center">
-              Experienta de peste 10 ani in domeniul securitatii
-            </h2>
-          </div>
+        <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
+          <h2 className="text-sm font-bold text-white text-center">
+            Experienta de peste 10 ani in domeniul securitatii
+          </h2>
         </div>
       </motion.div>
-      <motion.div style={{ y: y3 }} className="flex flex-row justify-start p-2">
-        <div className="w-[50%]">
-          <div className="w-[220px] h-[220px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
-            <h2 className="text-sm font-bold text-white text-center">
-              Suntem profesionisti, seriosi si dedicati nevoilor clientilor
-              nostri
-            </h2>
-          </div>
+      <motion.div
+        style={{ y: y3 }}
+        className="col-span-12 flex flex-row items-center justify-end p-5"
+      >
+        <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
+          <h2 className="text-sm font-bold text-white text-center">
+            Suntem profesionisti, seriosi si dedicati nevoilor clientilor nostri
+          </h2>
         </div>
       </motion.div>
       <motion.div
         style={{ y: y4 }}
-        className="flex flex-row justify-center p-2"
+        className="col-span-12 flex flex-row items-center justify-center p-5"
       >
-        <div className="w-[50%]">
-          <div className="w-[220px] h-[220px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
-            <h2 className="text-sm font-bold text-white text-center">
-              Ne incapatanam sa gasim solutii acolo unde altii ineceteaza sa
-              caute!
-            </h2>
-          </div>
+        <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
+          <h2 className="text-sm font-bold text-white text-center">
+            Ne incapatanam sa gasim solutii acolo unde altii ineceteaza sa
+            caute!
+          </h2>
         </div>
       </motion.div>
-      <motion.div style={{ y: y5 }} className="flex flex-row justify-start p-2">
-        <div className="w-[50%]">
-          <div className="w-[220px] h-[220px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
-            <h2 className="text-sm font-bold text-white text-center">
-              Suntem prezenti si pe Sicap
-            </h2>
-          </div>
+      <motion.div
+        style={{ y: y5 }}
+        className="col-span-12 flex flex-row items-center justify-start p-5"
+      >
+        <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
+          <h2 className="text-sm font-bold text-white text-center">
+            Suntem prezenti si pe Sicap
+          </h2>
         </div>
       </motion.div>
     </motion.div>
