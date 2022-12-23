@@ -4,50 +4,128 @@ import { Image, motion, useRouter } from "../lib/external-components";
 import { clearTheArrayOfTypename } from "../lib/helper-functions";
 
 const ServiciiPage = ({ data }) => {
-  console.log(data);
-  const analizeParagraphs = clearTheArrayOfTypename(
-    servicii.documentatii.analize.paragraphs
-  ).map((aa) => servicii.documentatii.analize.paragraphs[aa]);
-  const proiecteParagraphs = clearTheArrayOfTypename(
-    servicii.documentatii.securitate.paragraphs
-  ).map((aa) => servicii.documentatii.securitate.paragraphs[aa]);
-  const proiecteIncendiuParagraphs = clearTheArrayOfTypename(
-    servicii.documentatii.incendiu.paragraphs
-  ).map((aa) => servicii.documentatii.incendiu.paragraphs[aa]);
-  const instalareAntiefractieParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.antiefractie.paragraphs
-  ).map((aa) => servicii.instalare.antiefractie.paragraphs[aa]);
-  const instalareAntiefractieCablateP = clearTheArrayOfTypename(
-    servicii.instalare.antiefractie.cablate.paragraphs
-  ).map((aa) => servicii.instalare.antiefractie.cablate.paragraphs[aa]);
-  const instalareAntiefractieSmartP = clearTheArrayOfTypename(
-    servicii.instalare.antiefractie.smart.paragraphs
-  ).map((aa) => servicii.instalare.antiefractie.smart.paragraphs[aa]);
-  const instalareVideoParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.video.paragraphs
-  ).map((aa) => servicii.instalare.video.paragraphs[aa]);
-  const instalareVideoIpParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.video.ip.p
-  ).map((aa) => servicii.instalare.video.ip.p[aa]);
-  const instalareVideoAnalogicaParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.video.analogice.p
-  ).map((aa) => servicii.instalare.video.analogice.p[aa]);
-  const instalareIncendiuParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.video.paragraphs
-  ).map((aa) => servicii.instalare.incendiu.paragraphs[aa]);
-  const instalareAccesParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.acces.paragraphs
-  ).map((aa) => servicii.instalare.video.paragraphs[aa]);
-  const interfonieParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.interfonie.paragraphs
-  ).map((aa) => servicii.instalare.interfonie.paragraphs[aa]);
-  const reteleParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.retele.paragraphs
-  ).map((aa) => servicii.instalare.retele.paragraphs[aa]);
-  const mentenantaParagraphs = clearTheArrayOfTypename(
-    servicii.instalare.mentenanta.paragraphs
-  ).map((aa) => servicii.instalare.mentenanta.paragraphs[aa]);
   const router = useRouter();
+  const {
+    title,
+    subtitle,
+    heroimage: { altText: altTextHeroImg, sourceUrl: sourceUrlHeroImage },
+    iconsrcdocumentatii: {
+      altText: altTextIconDocumentatii,
+      sourceUrl: sourceUrlIconDocumentatii,
+    },
+    iconsrcinstalari: {
+      altText: altTextIconInstalari,
+      sourceUrl: sourceUrlIconSrcInstalari,
+    },
+    iconsrcmentenanta: {
+      altText: altTextIconSrcMentenanta,
+      sourceUrl: sourceUrlIconSrcMentenanta,
+    },
+  } = data;
+  const { title: analizeTitle, paragraphs: analizeParagraph } = data?.analize;
+  const analizeParagraphs = clearTheArrayOfTypename(analizeParagraph).map(
+    (item) => analizeParagraph[item]
+  );
+
+  const {
+    title: proiecteSecuritateTitle,
+    paragraphs: proiecteSecuritateParagraph,
+  } = data?.proiectesecuritate;
+
+  const proiecteSecuritateParagraphs = clearTheArrayOfTypename(
+    proiecteSecuritateParagraph
+  ).map((item) => proiecteSecuritateParagraph[item]);
+
+  const {
+    title: proiecteIncendiuTitle,
+    paragraphs: proiecteIncendiuParagraph,
+  } = data?.proiecteincendiu;
+
+  const proiecteIncendiuParagraphs = clearTheArrayOfTypename(
+    proiecteIncendiuParagraph
+  ).map((item) => proiecteIncendiuParagraph[item]);
+
+  const { title: instalareAccestTitle, paragraphs: instalareAccesParagraph } =
+    data?.instalareacces;
+
+  const instalareAccesParagraphs = clearTheArrayOfTypename(
+    instalareAccesParagraph
+  ).map((item) => instalareAccesParagraph[item]);
+
+  const { title: antiefractieTitle, paragraphs: antiefractieParagraph } =
+    data?.instalareantiefractie;
+
+  const antiefractieParagraphs = clearTheArrayOfTypename(
+    antiefractieParagraph
+  ).map((item) => antiefractieParagraph[item]);
+
+  const {
+    title: instalareIncendiuTitle,
+    paragraphs: instalareIncendiuParagraph,
+  } = data?.instalareincendiu;
+
+  const instalareIncendiuParagraphs = clearTheArrayOfTypename(
+    instalareAccesParagraph
+  ).map((item) => instalareIncendiuParagraph[item]);
+
+  const {
+    title: instalareInterfonieTitle,
+    paragraphs: instalareinterfonieParagraph,
+  } = data?.instalareinterfonie;
+
+  const instalareInterfonieParagraphs = clearTheArrayOfTypename(
+    instalareinterfonieParagraph
+  ).map((item) => instalareinterfonieParagraph[item]);
+
+  const { title: instalareVideoTitle, paragraphs: instalareVideoParagraph } =
+    data?.instalarevideo;
+
+  const instalareVideoParagraphs = clearTheArrayOfTypename(
+    instalareVideoParagraph
+  ).map((item) => instalareVideoParagraph[item]);
+
+  const { title: mentenantaTitle, paragraphs: mentenantaParagraph } =
+    data?.mentenanta;
+
+  const mentenantaParagraphs = clearTheArrayOfTypename(mentenantaParagraph).map(
+    (item) => mentenantaParagraph[item]
+  );
+
+  const { title: reteleTitle, paragraphs: reteleParagraph } = data?.retele;
+
+  const reteleParagraphs = clearTheArrayOfTypename(reteleParagraph).map(
+    (item) => reteleParagraph[item]
+  );
+
+  const {
+    title: sistemeAnalogiceTitle,
+    paragraphs: sistemeAnalogiceParagraph,
+  } = data?.sistemeanalogice;
+
+  const sistemeAnalogiceParagraphs = clearTheArrayOfTypename(
+    sistemeAnalogiceParagraph
+  ).map((item) => sistemeAnalogiceParagraph[item]);
+
+  const { title: sistemeCablateTitle, paragraph: sistemeCablateParagraph } =
+    data?.sistemecablate;
+
+  const sistemeCablateParagraphs = clearTheArrayOfTypename(
+    sistemeCablateParagraph
+  ).map((item) => sistemeCablateParagraph[item]);
+
+  const { title: sistemeIpTitle, paragraphs: sistemeIpParagraph } =
+    data?.sistemeip;
+
+  const sistemeIpParagraphs = clearTheArrayOfTypename(sistemeIpParagraph).map(
+    (item) => sistemeIpParagraph[item]
+  );
+
+  const { title: sistemeSmartTitle, paragraphs: sistemeSmartParagraph } =
+    data?.sistemesmart;
+
+  const sistemeSmartParagraphs = clearTheArrayOfTypename(
+    sistemeSmartParagraph
+  ).map((item) => sistemeSmartParagraph[item]);
 
   return (
     <div className="flex flex-col gap-2 p-2 overflow-x-hidden">
@@ -88,8 +166,8 @@ const ServiciiPage = ({ data }) => {
                 className="col-span-1"
               >
                 <Image
-                  src={servicii.documentatii.iconsrc.sourceUrl}
-                  alt={servicii.documentatii.iconsrc.altText}
+                  src={sourceUrlIconDocumentatii}
+                  alt={altTextIconDocumentatii}
                   width={1920}
                   height={1080}
                   style={{ width: "100%", height: "auto" }}
@@ -102,8 +180,8 @@ const ServiciiPage = ({ data }) => {
                 className="col-span-1"
               >
                 <Image
-                  src={servicii.instalare.iconSrc.sourceUrl}
-                  alt={servicii.instalare.iconSrc.altText}
+                  src={sourceUrlIconSrcInstalari}
+                  alt={altTextIconInstalari}
                   width={1920}
                   height={1080}
                   style={{ width: "100%", height: "auto" }}
@@ -116,8 +194,8 @@ const ServiciiPage = ({ data }) => {
                 onClick={() => router.push("#mentenanta")}
               >
                 <Image
-                  src={servicii.instalare.mentenanta.iconSrc.sourceUrl}
-                  alt={servicii.instalare.mentenanta.iconSrc.altText}
+                  src={sourceUrlIconSrcMentenanta}
+                  alt={altTextIconSrcMentenanta}
                   width={1920}
                   height={1080}
                   style={{ width: "100%", height: "auto" }}
@@ -134,8 +212,8 @@ const ServiciiPage = ({ data }) => {
             className="[mask:url(https://res.cloudinary.com/webniac/image/upload/v1659537920/STC/logo_t8yr6g.svg)] w-[80%] h-[80%]"
           >
             <Image
-              src={heroImage.sourceUrl}
-              alt={heroImage.altText}
+              src={sourceUrlHeroImage}
+              alt={altTextHeroImg}
               width={1920}
               height={1080}
               style={{ width: "100%", height: "auto" }}
@@ -152,7 +230,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.documentatii.analize.title}
+            {analizeTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -164,11 +242,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.documentatii.securitate.title}
+            {proiecteSecuritateTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {proiecteParagraphs.map((p, i) => (
+          {proiecteSecuritateParagraphs.map((p, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{p}</p>
             </div>
@@ -176,7 +254,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.documentatii.incendiu.title}
+            {proiecteIncendiuTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -195,11 +273,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.antiefractie.title}
+            {antiefractieTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {instalareAntiefractieParagraphs.map((p, i) => (
+          {antiefractieParagraphs.map((p, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{p}</p>
             </div>
@@ -207,11 +285,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-xl sm:text-4xl">
-            {servicii.instalare.antiefractie.cablate.title}
+            {sistemeCablateTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {instalareAntiefractieCablateP.map((pp, i) => (
+          {sistemeCablateParagraphs.map((pp, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{pp}</p>
             </div>
@@ -219,11 +297,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-xl sm:text-4xl">
-            {servicii.instalare.antiefractie.smart.title}
+            {sistemeSmartTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {instalareAntiefractieSmartP.map((pp, i) => (
+          {sistemeSmartParagraphs.map((pp, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{pp}</p>
             </div>
@@ -231,7 +309,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.video.title}
+            {instalareVideoTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -243,11 +321,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-xl sm:text-4xl">
-            {servicii.instalare.video.ip.title}
+            {sistemeIpTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {instalareVideoIpParagraphs.map((pp, i) => (
+          {sistemeIpParagraphs.map((pp, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{pp}</p>
             </div>
@@ -255,11 +333,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-xl sm:text-4xl">
-            {servicii.instalare.video.analogice.title}
+            {sistemeAnalogiceTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {instalareVideoAnalogicaParagraphs.map((pp, i) => (
+          {sistemeAnalogiceParagraphs.map((pp, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{pp}</p>
             </div>
@@ -267,7 +345,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.incendiu.title}
+            {instalareIncendiuTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -279,7 +357,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.acces.title}
+            {instalareAccestTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -291,11 +369,11 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.interfonie.title}
+            {instalareInterfonieTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
-          {interfonieParagraphs.map((pp, i) => (
+          {instalareInterfonieParagraphs.map((pp, i) => (
             <div key={i}>
               <p className="text-textColors-900 text-sm">{pp}</p>
             </div>
@@ -303,7 +381,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.retele.title}
+            {reteleTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
@@ -322,7 +400,7 @@ const ServiciiPage = ({ data }) => {
         </div>
         <div>
           <h3 className="text-white font-bold xs:text-2xl sm:text-5xl">
-            {servicii.instalare.mentenanta.title}
+            {mentenantaTitle}
           </h3>
         </div>
         <div className="flex flex-col gap-4">
