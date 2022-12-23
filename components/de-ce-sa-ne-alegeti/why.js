@@ -66,7 +66,7 @@ const Why = () => {
       </motion.div>
       <motion.div
         style={{ y: y4 }}
-        className="col-span-12 flex flex-row items-center justify-center p-5"
+        className="col-span-12 flex flex-row items-center justify-center p-6"
       >
         <div className="w-[300px] h-[300px] rounded-[50%] bg-thirdGradient shadow-sm shadow-slate-600 flex flex-col gap-2 justify-center items-center">
           <h2 className="text-sm font-bold text-white text-center">
