@@ -7,6 +7,7 @@ import {
 } from "../lib/helper-functions";
 
 const ServiciiPage = ({ data }) => {
+  console.log("Data servicii: ", data);
   const router = useRouter();
   const {
     title,
@@ -25,10 +26,15 @@ const ServiciiPage = ({ data }) => {
       sourceUrl: sourceUrlIconSrcMentenanta,
     },
   } = data;
+
   const { title: analizeTitle, paragraphs: analizeParagraph } = data?.analize;
-  const analizeParagraphs = clearTheArrayOfTypename(analizeParagraph).map(
-    (item) => analizeParagraph[item]
-  );
+  const analizeParagraphs = clearTheArrayOfTypename(analizeParagraph)
+    .map((item) => ({
+      p: analizeParagraph[item].p,
+      index: analizeParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const {
     title: proiecteSecuritateTitle,
@@ -37,7 +43,13 @@ const ServiciiPage = ({ data }) => {
 
   const proiecteSecuritateParagraphs = clearTheArrayOfTypename(
     proiecteSecuritateParagraph
-  ).map((item) => proiecteSecuritateParagraph[item]);
+  )
+    .map((item) => ({
+      p: proiecteSecuritateParagraph[item].p,
+      index: analizeParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const {
     title: proiecteIncendiuTitle,
@@ -53,14 +65,24 @@ const ServiciiPage = ({ data }) => {
 
   const instalareAccesParagraphs = clearTheArrayOfTypename(
     instalareAccesParagraph
-  ).map((item) => instalareAccesParagraph[item]);
+  )
+    .map((item) => ({
+      p: instalareAccesParagraph[item].p,
+      index: instalareAccesParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: antiefractieTitle, paragraphs: antiefractieParagraph } =
     data?.instalareantiefractie;
 
-  const antiefractieParagraphs = clearTheArrayOfTypename(
-    antiefractieParagraph
-  ).map((item) => antiefractieParagraph[item]);
+  const antiefractieParagraphs = clearTheArrayOfTypename(antiefractieParagraph)
+    .map((item) => ({
+      p: antiefractieParagraph[item].p,
+      index: antiefractieParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const {
     title: instalareIncendiuTitle,
@@ -69,7 +91,13 @@ const ServiciiPage = ({ data }) => {
 
   const instalareIncendiuParagraphs = clearTheArrayOfTypename(
     instalareAccesParagraph
-  ).map((item) => instalareIncendiuParagraph[item]);
+  )
+    .map((item) => ({
+      p: instalareIncendiuParagraph[item].p,
+      index: instalareIncendiuParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const {
     title: instalareInterfonieTitle,
@@ -78,14 +106,26 @@ const ServiciiPage = ({ data }) => {
 
   const instalareInterfonieParagraphs = clearTheArrayOfTypename(
     instalareinterfonieParagraph
-  ).map((item) => instalareinterfonieParagraph[item]);
+  )
+    .map((item) => ({
+      p: instalareinterfonieParagraph[item].p,
+      index: instalareinterfonieParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: instalareVideoTitle, paragraphs: instalareVideoParagraph } =
     data?.instalarevideo;
 
   const instalareVideoParagraphs = clearTheArrayOfTypename(
     instalareVideoParagraph
-  ).map((item) => instalareVideoParagraph[item]);
+  )
+    .map((item) => ({
+      p: instalareVideoParagraph[item].p,
+      index: instalareVideoParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: mentenantaTitle, paragraphs: mentenantaParagraph } =
     data?.mentenanta;
@@ -96,6 +136,7 @@ const ServiciiPage = ({ data }) => {
 
   const { title: reteleTitle, paragraphs: reteleParagraph } = data?.retele;
 
+  // continue here
   const reteleParagraphs = clearTheArrayOfTypename(reteleParagraph).map(
     (item) => reteleParagraph[item]
   );
@@ -107,28 +148,48 @@ const ServiciiPage = ({ data }) => {
 
   const sistemeAnalogiceParagraphs = clearTheArrayOfTypename(
     sistemeAnalogiceParagraph
-  ).map((item) => sistemeAnalogiceParagraph[item]);
+  )
+    .map((item) => ({
+      p: sistemeAnalogiceParagraph[item].p,
+      index: sistemeAnalogiceParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: sistemeCablateTitle, paragraph: sistemeCablateParagraph } =
     data?.sistemecablate;
 
   const sistemeCablateParagraphs = clearTheArrayOfTypename(
     sistemeCablateParagraph
-  ).map((item) => sistemeCablateParagraph[item]);
+  )
+    .map((item) => ({
+      p: sistemeCablateParagraph[item].p,
+      index: sistemeCablateParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: sistemeIpTitle, paragraphs: sistemeIpParagraph } =
     data?.sistemeip;
 
-  const sistemeIpParagraphs = clearTheArrayOfTypename(sistemeIpParagraph).map(
-    (item) => sistemeIpParagraph[item]
-  );
+  const sistemeIpParagraphs = clearTheArrayOfTypename(sistemeIpParagraph)
+    .map((item) => ({
+      p: sistemeIpParagraph[item].p,
+      index: sistemeIpParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   const { title: sistemeSmartTitle, paragraphs: sistemeSmartParagraph } =
     data?.sistemesmart;
 
-  const sistemeSmartParagraphs = clearTheArrayOfTypename(
-    sistemeSmartParagraph
-  ).map((item) => sistemeSmartParagraph[item]);
+  const sistemeSmartParagraphs = clearTheArrayOfTypename(sistemeSmartParagraph)
+    .map((item) => ({
+      p: sistemeSmartParagraph[item].p,
+      index: sistemeSmartParagraph[item].index,
+    }))
+    .sort(compareFunction)
+    .map((item) => item.p);
 
   return (
     <div className="flex flex-col gap-2 p-2 overflow-x-hidden">
@@ -430,19 +491,54 @@ export const getStaticProps = async () => {
               analize {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy10
-                  itemCopy11
-                  itemCopy12
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
-                  itemCopy5
-                  itemCopy6
-                  itemCopy7
-                  itemCopy8
-                  itemCopy9
+                  item {
+                    p
+                    index
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy10 {
+                    index
+                    p
+                  }
+                  itemCopy11 {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
+                  itemCopy4 {
+                    index
+                    p
+                  }
+                  itemCopy5 {
+                    index
+                    p
+                  }
+                  itemCopy6 {
+                    index
+                    p
+                  }
+                  itemCopy7 {
+                    index
+                    p
+                  }
+                  itemCopy8 {
+                    index
+                    p
+                  }
+                  itemCopy9 {
+                    p
+                    index
+                  }
                 }
               }
               heroimage {
@@ -464,50 +560,114 @@ export const getStaticProps = async () => {
               instalareacces {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
                 }
               }
               instalareantiefractie {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
+                  itemCopy4 {
+                    index
+                    p
+                  }
                 }
               }
               instalareincendiu {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
                 }
               }
               instalareinterfonie {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
                 }
               }
               instalarevideo {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    p
+                    index
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    p
+                    index
+                  }
+                  itemCopy4 {
+                    p
+                    index
+                  }
                 }
               }
               mentenanta {
@@ -527,19 +687,54 @@ export const getStaticProps = async () => {
               proiectesecuritate {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy10
-                  itemCopy11
-                  itemCopy12
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
-                  itemCopy5
-                  itemCopy6
-                  itemCopy7
-                  itemCopy8
-                  itemCopy9
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy10 {
+                    index
+                    p
+                  }
+                  itemCopy11 {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
+                  itemCopy4 {
+                    index
+                    p
+                  }
+                  itemCopy5 {
+                    index
+                    p
+                  }
+                  itemCopy6 {
+                    index
+                    p
+                  }
+                  itemCopy7 {
+                    index
+                    p
+                  }
+                  itemCopy8 {
+                    index
+                    p
+                  }
+                  itemCopy9 {
+                    index
+                    p
+                  }
                 }
               }
               retele {
@@ -552,50 +747,130 @@ export const getStaticProps = async () => {
               sistemeanalogice {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
-                  itemCopy5
-                  itemCopy6
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
+                  itemCopy4 {
+                    index
+                    p
+                  }
+                  itemCopy5 {
+                    index
+                    p
+                  }
+                  itemCopy6 {
+                    index
+                    p
+                  }
                 }
               }
               sistemecablate {
                 title
                 paragraph {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
                 }
               }
               sistemeip {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
-                  itemCopy5
-                  itemCopy6
-                  itemCopy7
-                  itemCopy8
-                  itemCopy9
+                  item {
+                    index
+                    p
+                  }
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    index
+                    p
+                  }
+                  itemCopy4 {
+                    index
+                    p
+                  }
+                  itemCopy5 {
+                    index
+                    p
+                  }
+                  itemCopy6 {
+                    index
+                    p
+                  }
+                  itemCopy7 {
+                    index
+                    p
+                  }
+                  itemCopy8 {
+                    index
+                    p
+                  }
                 }
               }
+
               sistemesmart {
                 title
                 paragraphs {
-                  item
-                  itemCopy
-                  itemCopy2
-                  itemCopy3
-                  itemCopy4
-                  itemCopy5
-                  itemCopy6
-                  itemCopy7
+                  itemCopy {
+                    index
+                    p
+                  }
+                  itemCopy2 {
+                    index
+                    p
+                  }
+                  itemCopy3 {
+                    p
+                    index
+                  }
+                  itemCopy4 {
+                    p
+                    index
+                  }
+                  itemCopy5 {
+                    index
+                    p
+                  }
+                  itemCopy6 {
+                    index
+                    p
+                  }
+                  itemCopy7 {
+                    index
+                    p
+                  }
                 }
               }
             }
