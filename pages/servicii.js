@@ -136,7 +136,6 @@ const ServiciiPage = ({ data }) => {
 
   const { title: reteleTitle, paragraphs: reteleParagraph } = data?.retele;
 
-  // continue here
   const reteleParagraphs = clearTheArrayOfTypename(reteleParagraph).map(
     (item) => reteleParagraph[item]
   );
