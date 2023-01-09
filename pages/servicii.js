@@ -7,7 +7,6 @@ import {
 } from "../lib/helper-functions";
 
 const ServiciiPage = ({ data }) => {
-  console.log("Data servicii: ", data);
   const router = useRouter();
   const {
     title,
@@ -285,7 +284,7 @@ const ServiciiPage = ({ data }) => {
           </motion.div>
         </div>
       </div>
-      <div className="p-2 bg-firstGradient rounded-lg flex flex-col gap-5">
+      <div className="p-2 bg-thirdGradient rounded-lg flex flex-col gap-5">
         <div id="documentatii">
           <h2 className="text-white font-bold xs:text-4xl sm:text-7xl underline underline-offset-8">
             Intocmire documentatii
@@ -299,7 +298,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {analizeParagraphs.map((p, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{p}</p>
+              <p className="text-white text-sm">{p}</p>
             </div>
           ))}
         </div>
@@ -311,7 +310,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {proiecteSecuritateParagraphs.map((p, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{p}</p>
+              <p className="text-white text-sm">{p}</p>
             </div>
           ))}
         </div>
@@ -323,12 +322,12 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {proiecteIncendiuParagraphs.map((p, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{p}</p>
+              <p className="text-white text-sm">{p}</p>
             </div>
           ))}
         </div>
       </div>
-      <div className="p-2 bg-secondGradient rounded-lg flex flex-col gap-5">
+      <div className="p-2 bg-thirdGradient rounded-lg flex flex-col gap-5">
         <div id="instalare">
           <h2 className="text-white font-bold xs:text-4xl sm:text-7xl underline underline-offset-8">
             Instalare sisteme
@@ -342,7 +341,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {antiefractieParagraphs.map((p, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{p}</p>
+              <p className="text-white text-sm">{p}</p>
             </div>
           ))}
         </div>
@@ -354,7 +353,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {sistemeCablateParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -366,7 +365,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {sistemeSmartParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -378,7 +377,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {instalareVideoParagraphs.map((p, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{p}</p>
+              <p className="text-white text-sm">{p}</p>
             </div>
           ))}
         </div>
@@ -390,7 +389,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {sistemeIpParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -402,7 +401,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {sistemeAnalogiceParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -414,7 +413,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {instalareIncendiuParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -426,7 +425,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {instalareAccesParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -438,7 +437,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {instalareInterfonieParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>
@@ -450,7 +449,7 @@ const ServiciiPage = ({ data }) => {
         <div className="flex flex-col gap-4">
           {reteleParagraphs.map((pp, i) => (
             <div key={i}>
-              <p className="text-textColors-900 text-sm">{pp}</p>
+              <p className="text-white text-sm">{pp}</p>
             </div>
           ))}
         </div>

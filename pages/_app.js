@@ -11,26 +11,48 @@ import Footer from "../components/footer/footer";
 import { CookieWrapper } from "../context/cookie-context";
 import Layout from "../components/layout/layout";
 import Seo from "../components/custom-seo/seo";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps, canonical }) {
   return (
-    <ApolloProvider client={client}>
-      <CookieWrapper>
-        <AppWrapper>
-          <Fab>
-            <Header />
-            <PageTransition>
-              <Layout>
-                <Seo canonical={canonical} />
-                <Component {...pageProps} />
-              </Layout>
-            </PageTransition>
-            <Footer />
-            <ModalDrawer component={<Drawer />} />
-          </Fab>
-        </AppWrapper>
-      </CookieWrapper>
-    </ApolloProvider>
+    <div>
+      <Head>
+        <title>STC WORLD SYSTEMS - Solutii de securitate smart</title>
+        <meta
+          property="og:title"
+          content="STC WORLD SYSTEMS - Solutii de securitate smart"
+        />
+        <meta
+          name="description"
+          content="STC WORLD SYSTEMS - Securitate - Proiectare, instalare, mentenanta sisteme de securitate smart, sisteme de surpaveghere video, control acces, interfonie/videointerfonie, date-voce"
+        />
+        <meta
+          content="https://res.cloudinary.com/webniac/image/upload/v1659537920/STC/logo_t8yr6g.svg"
+          property="og:image"
+        />
+        <meta
+          name="description"
+          content="STC WORLD SYSTEMS - Solutiile optime de securitate pentru locuintele si afacerile dumneavoastra."
+        />
+      </Head>
+      <ApolloProvider client={client}>
+        <CookieWrapper>
+          <AppWrapper>
+            <Fab>
+              <Header />
+              <PageTransition>
+                <Layout>
+                  <Seo canonical={canonical} />
+                  <Component {...pageProps} />
+                </Layout>
+              </PageTransition>
+              <Footer />
+              <ModalDrawer component={<Drawer />} />
+            </Fab>
+          </AppWrapper>
+        </CookieWrapper>
+      </ApolloProvider>
+    </div>
   );
 }
 
